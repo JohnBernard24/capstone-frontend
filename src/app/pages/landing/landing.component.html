@@ -1,1 +1,19 @@
-<p>landing works!</p>
+<h1 class="text-center my-5">Welcome to Pastebook!</h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div id="landing-left" class="col-6 col-md-5 mt-5 p-5 justify-content-center text-dark">
+            <p>Stay connected with your friends, or make new acquaintances here!</p>
+            <p>Copy what is on your mind, and Paste it here for the whole world to see.</p>
+        </div>
+        <div id="landing-right" class="col-6 col-md-5 mt-5 p-5 justify-content-center text-light">
+            <p>Don't have an account yet?</p>
+            <p>Click the button below to get started!</p>
+        </div>
+        <div id="landing-left" class="col-6 col-md-5 p-5 justify-content-center text-light">
+            <button class="btn" (click)="loginClick()">Log In</button>
+        </div>
+        <div id="landing-right" class="col-6 col-md-5 p-5 justify-content-center text-light">
+            <button class="btn" (click)="signUpClick()">Sign Up</button>
+        </div>
+    </div>
+</div>
