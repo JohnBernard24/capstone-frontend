@@ -86,7 +86,14 @@ body {
 p {
     font-size: 30px;
 }
-
+body {
+  background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('/assets/images/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin: 0;
+}
 #landing-left {
     background-color: #BED4E9;
 }
