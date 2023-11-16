@@ -1,4 +1,4 @@
-<div class="registration-page">
+<!-- <div class="registration-page">
     <div class="form">
       <div class="registration">
         <div class="registration-header">
@@ -27,4 +27,45 @@
       <input type="text" id="mobileNumber" name="mobileNumber" pattern="[0-9]{10}" required title="Please enter a 10-digit phone number" placeholder="mobileNumber">
 
       <button class="btn">Submit</button>
-  </form>
+  </form> -->
+
+  <div class="container pb-5">
+    <div class="row justify-content-center mt-5">
+        <div id="landing-left" class="col-6 col-md-5 mt-5 p-5 d-none d-sm-flex justify-content-center text-dark">
+            <div class="registration-page">
+                <div class="form">
+                  <div class="registration">
+                    <div class="registration-header">
+                        <img class="img-fluid" src="assets/images/Logo1.PNG">
+                    </div>
+                  </div>
+              <form id="registrationForm" action="login.html" method="post" class="registration-form">
+            
+                  <input type="text" id="firstName" name="firstName" placeholder="FirstName" required>
+            
+                  <input type="text" id="lastName" name="lastName" placeholder="LastName" required>
+            
+                  <input type="email" id="email" name="email" placeholder="EmailAddress" required>
+            
+                  <input type="password" id="password" name="password" placeholder="Password" required>
+            
+                  <input type="date" id="birthday" name="birthday" placeholder="Birthday" required>
+            
+                  <label for="gender">Gender:</label>
+                  <select id="gender" name="gender">
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="other">Other</option>
+                  </select>
+                  
+            
+                  <input type="text" id="mobileNumber" name="mobileNumber" pattern="[0-9]{10}" required title="Please enter a 10-digit phone number" placeholder="mobileNumber">
+            
+                  <button class="btn">Register</button>
+              </form> 
+                    </div>
+                </div>
+        </div>
+        <div id="landing-right" class="col-6 col-md-5 mt-5 p-5 d-none d-sm-flex justify-content-center text-light">
+           
+</div>

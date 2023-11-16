@@ -1,19 +1,25 @@
-<h1 class="text-center my-5">Welcome to Pastebook!</h1>
-<div class="container">
+<body><div class="container" style="position: absolute; top: 50%; left:50%; transform: translate(-50%, -50%);">
     <div class="row justify-content-center">
-        <div id="landing-left" class="col-6 col-md-5 mt-5 p-5 justify-content-center text-dark">
-            <p>Stay connected with your friends, or make new acquaintances here!</p>
-            <p>Copy what is on your mind, and Paste it here for the whole world to see.</p>
-        </div>
-        <div id="landing-right" class="col-6 col-md-5 mt-5 p-5 justify-content-center text-light">
-            <p>Don't have an account yet?</p>
-            <p>Click the button below to get started!</p>
-        </div>
-        <div id="landing-left" class="col-6 col-md-5 p-5 justify-content-center text-light">
-            <button class="btn" (click)="loginClick()">Log In</button>
+        <div id="landing-left" class="col-6 col-md-5 p-5 d-none d-sm-flex justify-content-center text-dark">
+           
         </div>
         <div id="landing-right" class="col-6 col-md-5 p-5 justify-content-center text-light">
-            <button class="btn" (click)="signUpClick()">Sign Up</button>
+            
+            <div class="form">
+                <div class="login">
+                  <div class="login-header">
+                    <img class="img-fluid mb-3" src="assets/images/Logo1.PNG">
+                  </div>
+                </div>
+                <form class="login-form">
+                  <input type="text" placeholder="Username" name="username"/>
+                  <input type="password" placeholder="Password" name="password"/>
+                  <button class="btn">login</button>
+                  <p class="message text-center" style="font-size: 14px;"><a routerLink="/register">Create an account</a></p>
+                  <p class="message text-center" style="font-size: 14px;"><a routerLink="/register">Forgot Password</a></p>
+                </form>
+              </div>
         </div>
     </div>
 </div>
+</body>

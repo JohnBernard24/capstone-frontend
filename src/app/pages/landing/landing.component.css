@@ -1,9 +1,18 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
 p {
     font-size: 30px;
 }
+body {
+    background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('/assets/images/landing-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+}
 
 #landing-left {
-    background-color: #BED4E9;
+    background-color: #f2f2f2;
 }
 
 #landing-right {
@@ -31,3 +40,38 @@ p {
     background-color: #BED4E9;
     color: #3373B0;
 }
+.form input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  
+.form button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background-color: #1C2127;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 15px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+  }
+  .form .message {
+    margin: 15px 0 0;
+    color: #E7F1FB;
+    font-size: 12px;
+  }
+  .form .message a {
+    color: #E7F1FB;
+    text-decoration: none;
+  }
