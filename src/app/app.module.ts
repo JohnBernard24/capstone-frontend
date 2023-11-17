@@ -9,6 +9,7 @@ import { LandingComponent } from './pages/landing/landing.component';
 import { ForgotComponent } from './pages/forgot/forgot.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 const appRoutes: Routes = [
   {path: '', component:LandingComponent},
@@ -28,7 +29,8 @@ const appRoutes: Routes = [
     LandingComponent,
     ForgotComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
