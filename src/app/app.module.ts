@@ -11,7 +11,8 @@ import { ForgotComponent } from './pages/forgot/forgot.component';
 const appRoutes: Routes = [
   {path: '', component:LandingComponent},
   {path: 'login', component:LoginComponent},
-  {path: 'register', component:RegisterComponent}
+  {path: 'register', component:RegisterComponent},
+  {path: 'forgot', component:ForgotComponent}
  
   
 ];
