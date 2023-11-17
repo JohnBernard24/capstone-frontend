@@ -7,6 +7,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { ForgotComponent } from './pages/forgot/forgot.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 const appRoutes: Routes = [
   {path: '', component:LandingComponent},
@@ -24,7 +26,9 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     LandingComponent,
-    ForgotComponent
+    ForgotComponent,
+    HomeComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
