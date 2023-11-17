@@ -8,26 +8,26 @@
                         <img class="img-fluid pb-2" src="assets/images/Logo1_dark.PNG">
                     </div>
                   </div>
-              <form id="registrationForm" action="login.html" method="post" class="registration-form">
+              <form (ngSubmit)="onRegister()" id="registrationForm" action="login.html" method="post" class="registration-form">
             
-                  <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+                  <input type="text" id="firstName" name="firstName" placeholder="First Name" [(ngModel)]="user.firstName" required>
             
-                  <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
+                  <input type="text" id="lastName" name="lastName" placeholder="Last Name" [(ngModel)]="user.lastName" required>
             
-                  <input type="email" id="email" name="email" placeholder="Email Address" required>
+                  <input type="email" id="email" name="email" placeholder="Email Address" [(ngModel)]="user.email" required>
             
-                  <input type="password" id="password" name="password" placeholder="Password" required>
+                  <input type="password" id="password" name="password" placeholder="Password" [(ngModel)]="user.password" required>
             
-                  <input type="date" id="birthday" name="birthday" placeholder="Birthday" required>
+                  <input type="date" id="birthday" name="birthday" placeholder="Birthday" [(ngModel)]="user.birthday" required>
             
-                  <select id="gender" name="gender" class="mb-3">
+                  <select id="gender" name="gender" class="mb-3" [(ngModel)]="user.gender" >
                     <option disabled selected>Gender</option>
                       <option value="male">Male</option>
                       <option value="female">Female</option>
                       <option value="other">Other</option>
                   </select>
                   
-                  <input type="text" id="mobileNumber" name="mobileNumber" pattern="[0-9]{10}" required title="Please enter a 10-digit phone number" placeholder="Mobile Number">
+                  <input type="text" id="mobileNumber" name="mobileNumber" pattern="[0-9]{10}" required title="Please enter a 10-digit phone number" placeholder="Mobile Number" [(ngModel)]="user.phone" >
             
                   <button class="btn">Register</button>
               </form> 
