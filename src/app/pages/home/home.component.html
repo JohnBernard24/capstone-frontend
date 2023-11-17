@@ -1,7 +1,31 @@
-<body>
-    <div class="row pt-5 pe-5 ps-5 justify-content-center gap-2">   
-        <div class="col-3 d-block p-3 custom-div">
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            overflow-x: hidden; /* Hide horizontal scrollbar */
+        }
+
+        .row {
+            width: 100%; /* Ensure the row takes up the full width */
+        }
+
+        .col-3,
+        .col-5 {
+            max-width: 100%; /* Set max-width to 100% to prevent overflow */
+            overflow-x: hidden; /* Hide horizontal overflow */
+        }
+    </style>
+</head>
+<app-navbar></app-navbar>
+<body>
+    <div class="row pt-5 pe-5 ps-5 justify-content-center gap-2">
+        <div class="col-3 d-block p-3 custom-div">
+            <!-- Content for the first column -->
+            <!-- Add your content here -->
         </div>
 
         <div class="col-5 d-flex justify-content-center align-items-center p-3 custom-div">
@@ -14,21 +38,29 @@
                 </li>
             </ul>
         </div>
-        
-        <div class="col-3 d-block p-3 custom-div">
 
+        <div class="col-3 d-block p-3 custom-div">
+            <!-- Content for the third column -->
+            <!-- Add your content here -->
         </div>
     </div>
+
     <!-- Add another div below every column -->
     <div class="row pb-5 pe-5 ps-5 pt-2 justify-content-center gap-2">
         <div class="col-3 d-block p-3 custom-div">
-
+            <!-- Content for below the first column -->
+            <!-- Add your content here -->
         </div>
         <div class="col-5 d-block p-3 custom-div">
-
+            <!-- Content for below the second column -->
+            <!-- Add your content here -->
         </div>
         <div class="col-3 d-block p-3 custom-div">
+            <!-- Content for below the third column -->
+            <!-- Add your content here -->
         </div>
     </div>
 
 </body>
+<app-footer></app-footer>
+</html>
