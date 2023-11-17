@@ -1,0 +1,7 @@
+body {
+    background-color: rgb(229, 225, 225);
+    height: 100vh;
+}
+.custom-div {
+    background-color: #f1f0f0; /* Adjust the color as needed */
+}
