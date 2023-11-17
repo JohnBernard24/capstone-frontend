@@ -10,9 +10,9 @@
                   <img class="img-fluid mb-3" src="assets/images/Logo1.PNG">
                 </div>
               </div>
-              <form class="login-form">
-                <input type="text" placeholder="Username" name="username"/>
-                <input type="password" placeholder="Password" name="password"/>
+              <form (ngSubmit)="onSubmit()" class="login-form">
+                <input type="email" placeholder="Email" name="email" [(ngModel)]="email" required/>
+                <input type="password" placeholder="Password" name="password" [(ngModel)]="password" required/>
                 <button class="btn">login</button>
                 <p class="message text-center" style="font-size: 14px;"><a routerLink="/register">Create an account</a></p>
                 <p class="message text-center" style="font-size: 14px;"><a routerLink="/forgot">Forgot Password</a></p>
