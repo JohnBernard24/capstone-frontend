@@ -1,0 +1,22 @@
+.navbar-brand img {
+    max-width: 105px; /* Adjust the maximum width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.navbar-color {
+    background-color: #3373B0; /* Replace with your desired color code */
+}
+
+@media (max-width: 767px) {
+    .navbar-brand {
+        display: none; /* hide text on small screens */
+    }
+
+    .navbar-toggler {
+        display: block; /* show toggler on small screens */
+    }
+
+    .navbar-brand-mobile {
+        display: block; /* show image on small screens */
+    }
+}
