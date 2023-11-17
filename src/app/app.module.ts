@@ -21,7 +21,8 @@ const appRoutes: Routes = [
   {path: '', component:LandingComponent},
   {path: 'login', component:LoginComponent},
   {path: 'register', component:RegisterComponent},
-  {path: 'forgot', component:ForgotComponent}
+  {path: 'forgot', component:ForgotComponent},
+  {path: 'home', component:HomeComponent}
  
   
 ];
