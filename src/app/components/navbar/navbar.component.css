@@ -3,7 +3,7 @@
     height: auto; /* Maintain aspect ratio */
 }
 
-.navbar-nav img {
+.navbar-nav img, .search-bar {
     max-width: 30px; /* Adjust the maximum width as needed */
     height: auto; /* Maintain aspect ratio */
 }
@@ -25,3 +25,4 @@
         display: block; /* show image on small screens */
     }
 }
+
