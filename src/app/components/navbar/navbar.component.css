@@ -3,6 +3,11 @@
     height: auto; /* Maintain aspect ratio */
 }
 
+.navbar-nav img {
+    max-width: 30px; /* Adjust the maximum width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
 .navbar-color {
     background-color: #3373B0; /* Replace with your desired color code */
 }
