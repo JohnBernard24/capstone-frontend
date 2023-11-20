@@ -1,1 +1,17 @@
-<p>newsfeed works!</p>
+<div id="newsfeed">
+    <div class="post" *ngFor="let post of posts">
+      <p>{{ post.content }}</p>
+      <div class="actions">
+        <span class="like-btn" (click)="toggleLike(post)">Like</span>
+        <span class="comment-btn" (click)="showComments(post)">Comment</span>
+      </div>
+      <div class="comments" *ngIf="post.showComments">
+        <textarea [(ngModel)]="post.newComment" placeholder="Write a comment"></textarea>
+        <button (click)="addComment(post)">Add Comment</button>
+        <ul>
+          <li *ngFor="let comment of post.comments">{{ comment }}</li>
+        </ul>
+      </div>
+      <div class="likes">{{ post.likes }} Likes</div>
+    </div>
+  </div>
