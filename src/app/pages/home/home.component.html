@@ -2,31 +2,70 @@
 <app-navbar></app-navbar>
 <body>
     <div class="row pt-5 pe-5 ps-5 justify-content-center gap-2">
-        <div class="col-3 d-block p-3 custom-div d-none d-md-flex d-flex justify-content-center align-items-center">
-            <img src="/assets/images/bg.jpg" alt="Profile Photo" class="rounded-circle mb-3" width="100" height="100">
+      <div class="col-3 d-block p-3 custom-div d-none d-lg-flex d-flex flex-column align-items-center text-center">
+        <img src="/assets/images/bg.jpg" alt="Profile Photo" class="rounded-circle mb-3" width="100" height="100">
+        <h1>Timothy Dy</h1>
+        <p class="pb-2">Software Developer Trainee</p>
+        <h4>10</h4>
+        <p>Friends</p>
+        <h5 class="text-primary pt-3" style="font-weight: bold;"><a routerLink="/profile" style="text-decoration: none;">View My Profile</a></h5>
+    </div>
+
+
+        <div class="col-12 col-lg-5 d-flex justify-content-center align-items-center p-3 custom-div flex-column text-center">
+
         </div>
 
-        <div class="col-12 col-md-5 d-flex justify-content-center align-items-center p-3 custom-div ">
-            
-        </div>
-
-        <div class="col-3 d-block p-3 custom-div d-none d-md-flex">
+        <div class="col-3 d-block p-3 custom-div d-none d-lg-flex">
             <h6>Friend Requests</h6>
         </div>
     </div>
 
     <!-- Add another div below every column -->
     <div class="row pb-5 pe-5 ps-5 pt-2 justify-content-center gap-2 ">
-        <div class="col-3 d-block p-3 custom-div d-none d-md-flex">
-            <!-- Content for below the first column -->
-            <!-- Add your content here -->
+      <div class="col-3 d-block p-3 custom-div d-none d-lg-flex">
+
+        <!-- Photo Album Grid -->
+        <div class="photo-grid">
+            <!-- Photo 1 -->
+            <div class="photo-item">
+                <img src="/assets/images/bg.jpg" alt="Photo 1">
+            </div>
+
+            <!-- Photo 2 -->
+            <div class="photo-item">
+                <img src="/assets/images/bg.jpg" alt="Photo 2">
+            </div>
+
+            <div class="photo-item">
+                <img src="/assets/images/bg.jpg" alt="Photo 3">
+            </div>
+
+            <div class="photo-item">
+                <img src="/assets/images/bg.jpg" alt="Photo 4">
+            </div>
+
+            <div class="photo-item">
+              <img src="/assets/images/bg.jpg" alt="Photo 4">
+          </div>
+
+          <div class="photo-item">
+            <img src="/assets/images/bg.jpg" alt="Photo 4">
         </div>
-        <div class="col-12 col-md-5 d-block p-3 custom-div">
+
+            <!-- Add more photos as needed -->
+
+        </div>
+        <!-- End Photo Album Grid -->
+    </div>
+
+
+        <div class="col-12 col-lg-5 d-block p-3 custom-div">
             <!-- Content for below the second column -->
             <!-- Add your content here -->
         </div>
-        <div class="col-3 d-block p-3 custom-div d-none d-md-flex ">
-            <h6>Photos</h6>
+        <div class="col-3 d-block p-3 custom-div d-none d-lg-flex ">
+
         </div>
     </div>
 
