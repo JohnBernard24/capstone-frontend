@@ -40,3 +40,14 @@ body, html {
   height: auto;
   display: block;
 }
+
+textarea {
+  width: 100%;
+  min-height: 200px;
+  resize: none;
+}
+
+#postButton {
+  background-color: #3373B0;
+  color: #E7F1FB;
+}
