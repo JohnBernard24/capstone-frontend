@@ -15,6 +15,12 @@ import { ForgotComponent } from './pages/forgot/forgot.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { RequestsComponent } from './components/requests/requests.component';
+import { FriendsComponent } from './components/friends/friends.component';
+import { TimelineComponent } from './components/timeline/timeline.component';
+import { NewsfeedComponent } from './components/newsfeed/newsfeed.component';
+import { AlbumComponent } from './components/album/album.component';
+import { PhotoalbumComponent } from './pages/photoalbum/photoalbum.component';
 
 
 const appRoutes: Routes = [
@@ -39,7 +45,13 @@ const appRoutes: Routes = [
     ForgotComponent,
     HomeComponent,
     ProfileComponent,
-    FooterComponent
+    FooterComponent,
+    RequestsComponent,
+    FriendsComponent,
+    TimelineComponent,
+    NewsfeedComponent,
+    AlbumComponent,
+    PhotoalbumComponent
   ],
   imports: [
     BrowserModule,
