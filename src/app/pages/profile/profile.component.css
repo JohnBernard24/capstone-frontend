@@ -2,24 +2,24 @@ body {
     background-color: rgb(229, 225, 225);
 }
 .custom-div {
-    background-color: #f1f0f0; /* Adjust the color as needed */
+    background-color: #f1f0f0;
 }
 
 body, html {
     height: 100%;
     margin: 0;
-    overflow-x: hidden; /* Hide horizontal scrollbar */
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Set minimum height to 100vh for body */
+    min-height: 100vh;
 }
 
 .row {
-    width: 100%; /* Ensure the row takes up the full width */
+    width: 100%;
 }
 
 .col-3,
 .col-5 {
-    max-width: 100%; /* Set max-width to 100% to prevent overflow */
-    overflow-x: hidden; /* Hide horizontal overflow */
+    max-width: 100%; 
+    overflow-x: hidden;
 }
