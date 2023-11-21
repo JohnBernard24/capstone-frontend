@@ -1,7 +1,7 @@
 <body><div class="container" style="position: absolute; top: 50%; left:50%; transform: translate(-50%, -50%); ">
   <div class="row justify-content-center">
       <div id="landing-left" class="col-md-5 p-5 d-none d-lg-flex justify-content-center text-dark">
-        <img class="img-fluid p-4" src="assets/images/Logo1_dark.PNG">
+        <img class="img-fluid h-25" src="assets/images/Logo1_dark.PNG">
       </div>
       <div id="landing-right" class="col-10 col-md-5 p-5 justify-content-center text-light">
           <div class="form">
@@ -9,14 +9,16 @@
                 <div class="login-header">
                 </div>
               </div>
-              <form (ngSubmit)="onSubmit()" class="login-form">
-                <label for="email">Email:</label>
-                <input type="email" placeholder="Email" name="email" [(ngModel)]="email" required/>
+              <h3 class="text-center">Login Account</h3>
+              <h6 class="text-center">Socialize. Connect. Paste It!</h6>
+              <form (ngSubmit)="onSubmit()" class="login-form mt-4">
+                <label for="email">Email Address</label>
+                <input class="rounded p-2" type="email" placeholder="Enter email" name="email" [(ngModel)]="email" required/>
                 <label for="password">Password</label>
-                <input type="password" placeholder="Password" name="password" [(ngModel)]="password" required/>
-                <button class="btn">login</button>
-                <p class="message text-center" style="font-size: 14px;"><a routerLink="/register">Create an account</a></p>
-                <p class="message text-center" style="font-size: 14px;"><a routerLink="/forgot-password">Forgot Password</a></p>
+                <input class="rounded p-2" type="password" placeholder="Enter password" name="password" [(ngModel)]="password" required/>
+                <button class="btn mt-3">login</button>
+                <p class="message text-center" style="font-size: 14px;"><a routerLink="/register" class="text-decoration-underline">Create an account</a></p>
+                <p class="message text-center" style="font-size: 14px;">Forgot Password? <a class="text-decoration-underline" routerLink="/forgot-password">Click here.</a></p>
               </form>
             </div>
       </div>
