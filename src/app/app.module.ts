@@ -32,6 +32,7 @@ const appRoutes: Routes = [
   {path: 'register', component:RegisterComponent},
   {path: 'home', component:HomeComponent},
   {path: 'profile', component:ProfileComponent},
+  {path: 'settings', component:SettingsComponent},
   {path: 'forgot-password', component:ForgotComponent},
   {path: 'change-password', component:ChangepasswordComponent}
 
