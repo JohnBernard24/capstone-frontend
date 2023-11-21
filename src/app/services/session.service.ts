@@ -23,6 +23,10 @@ export class SessionService {
     return localStorage.getItem('email')!
    }
 
+   getUserId(): string {
+    return localStorage.getItem('userId')!
+   }
+
    setToken(value: string): void {
     this.hasToken.emit(true)
     localStorage.setItem('token', value)
@@ -30,6 +34,10 @@ export class SessionService {
    
    setEmail(value: string): void {
     localStorage.setItem('email', value)
+   }
+
+   setUserId(value: string): void{
+    localStorage.setItem('userId', value)
    }
 
    clear(): void {

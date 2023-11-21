@@ -19,10 +19,16 @@ export class UserService {
     return this.http.post(this.baseUrl + '/register', user)
   }
 
-  
   login(email: string, password: string): Observable<Object> {
-
     return this.http.post(this.baseUrl + '/login', {email, password})
   }
 
+  sendEmail(userId: number, recipientEmail: string): Observable<any>{
+    const body = {recipientEmail};
+    return this.http.get(`${this.baseUrl}/verify-email/${userId}`, {params: body});
+  }
+
+
+  //USER PROFILE
+  
 }
