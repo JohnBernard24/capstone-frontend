@@ -21,6 +21,7 @@ import { TimelineComponent } from './components/timeline/timeline.component';
 import { NewsfeedComponent } from './components/newsfeed/newsfeed.component';
 import { AlbumComponent } from './components/album/album.component';
 import { PhotoalbumComponent } from './pages/photoalbum/photoalbum.component';
+import { NotificationsComponent } from './components/notifications/notifications.component';
 
 
 const appRoutes: Routes = [
@@ -51,7 +52,8 @@ const appRoutes: Routes = [
     TimelineComponent,
     NewsfeedComponent,
     AlbumComponent,
-    PhotoalbumComponent
+    PhotoalbumComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserModule,
