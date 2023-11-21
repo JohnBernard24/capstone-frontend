@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { User } from '../models/user';
-
+import { UserRegisterDTO } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +15,7 @@ export class UserService {
     private http: HttpClient
   ) { }
 
-  register(user: User): Observable<Object> {
+  register(user: UserRegisterDTO): Observable<Object> {
     return this.http.post(this.baseUrl + '/register', user)
   }
 
