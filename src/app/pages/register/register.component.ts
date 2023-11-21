@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-
+import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
@@ -31,6 +30,7 @@ export class RegisterComponent implements OnInit {
 
   successfulRegister(response: Record<string, any>) {
     console.log(response)
+    this.router.navigate(['/login'])
   }
 
   failedRegister(result: Record<string, any>) {

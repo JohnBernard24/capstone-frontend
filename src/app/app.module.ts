@@ -4,8 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-
-
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -22,15 +20,20 @@ import { NewsfeedComponent } from './components/newsfeed/newsfeed.component';
 import { AlbumComponent } from './components/album/album.component';
 import { PhotoalbumComponent } from './pages/photoalbum/photoalbum.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { ChangePassComponent } from '@components/change-pass/change-pass.component';
+import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
+import { ChangepasswordComponent } from './pages/changepassword/changepassword.component';
 
 
 const appRoutes: Routes = [
   {path: '', component:LandingComponent},
   {path: 'login', component:LoginComponent},
   {path: 'register', component:RegisterComponent},
-  {path: 'forgot', component:ForgotComponent},
   {path: 'home', component:HomeComponent},
-  {path: 'profile', component:ProfileComponent}
+  {path: 'profile', component:ProfileComponent},
+  {path: 'forgot-password', component:ForgotComponent},
+  {path: 'change-password', component:ChangepasswordComponent}
 
  
   
@@ -53,7 +56,11 @@ const appRoutes: Routes = [
     NewsfeedComponent,
     AlbumComponent,
     PhotoalbumComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    SettingsComponent,
+    ChangePassComponent,
+    ForgotPassComponent,
+    ChangepasswordComponent
   ],
   imports: [
     BrowserModule,

@@ -36,13 +36,12 @@ export class LoginComponent implements OnInit {
     this.sessionService.setEmail(response['email'])
     this.sessionService.setToken(response['token'])
     this.router.navigate(['']).then(() => {
-      window.location.href = '/'
+      window.location.href = '/home'
     })
   }
 
   failedLogin(result: Record<string, any>) {
     let data: Record<string, any> = result['error']
-
     console.log(data);
   }
 
