@@ -1,0 +1,17 @@
+<div id="accordion">
+  <div *ngFor="let item of accordionItems" class="card">
+    <div class="card-header" [id]="'heading' + item.id">
+      <h5 class="mb-0">
+        <button class="btn btn-link" (click)="toggleItem(item.id)" [attr.aria-expanded]="activeItem === item.id" [attr.aria-controls]="'collapse' + item.id">
+          {{ item.title }}
+        </button>
+      </h5>
+    </div>
+
+    <div [id]="'collapse' + item.id" class="collapse" [ngClass]="{ 'show': activeItem === item.id }" [attr.aria-labelledby]="'heading' + item.id" data-parent="#accordion">
+      <div class="card-body">
+        {{ item.content }}
+      </div>
+    </div>
+  </div>
+</div>
