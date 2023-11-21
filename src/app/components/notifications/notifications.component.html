@@ -2,13 +2,16 @@
     <!-- Check if there are notifications -->
     <ng-container *ngIf="notifications.length > 0; else noNotifications">
         <!-- Loop through notifications -->
-        <li *ngFor="let notification of notifications">
+        <li *ngFor="let notification of notifications" [ngClass]="{ 'read-notification': notification.read }">
             <a class="dropdown-item">
-                <div>
+                <div [ngStyle]="{ 'background-color': notification.read ? 'white' : 'lightgray' }">
                     <strong>{{ notification.sender }}</strong> {{ notification.action }} your {{ notification.type }}.
                 </div>
-                <!-- "Mark as Read" option that removes the notification -->
-                <span class="mark-as-read-btn" (click)="markAsRead(notification)">Mark as Read</span>
+                <!-- "Mark as Read" option for unread notifications -->
+                <span class="mark-as-read-btn" *ngIf="!notification.read" (click)="markAsRead(notification)">Mark as Read</span>
+                <span class="mark-as-unread-btn" *ngIf="notification.read" (click)="markAsUnread(notification)">Mark as Unread</span>
+                <!-- "x" button to delete the notification -->
+                <span class="delete-btn" (click)="deleteNotification(notification)">x</span>
             </a>
             <hr>
         </li>
@@ -22,3 +25,4 @@
         <li><a class="dropdown-item">No notifications to display.</a></li>
     </ng-template>
 </ul>
+  

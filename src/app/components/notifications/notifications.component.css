@@ -17,9 +17,26 @@
     justify-content: flex-end;
 }
 
-.mark-as-read-btn, .delete-all-btn {
+.mark-as-read-btn, .mark-as-unread-btn, .delete-all-btn {
     cursor: pointer;
     color: #007bff;
     margin-right: 10px;
     font-size: 12px;
 }
+
+/* Add a style for notifications with a gray background by default */
+.read-notification {
+    background-color: white;
+}
+  
+/* Style for the "x" button */
+.delete-btn {
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-weight: bold;
+    color: red;
+}
+  
+  
