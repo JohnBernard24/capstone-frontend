@@ -1,1 +1,24 @@
-<p>notifications works!</p>
+<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="user-dropdown">
+    <!-- Check if there are notifications -->
+    <ng-container *ngIf="notifications.length > 0; else noNotifications">
+        <!-- Loop through notifications -->
+        <li *ngFor="let notification of notifications">
+            <a class="dropdown-item">
+                <div>
+                    <strong>{{ notification.sender }}</strong> {{ notification.action }} your {{ notification.type }}.
+                </div>
+                <!-- "Mark as Read" option that removes the notification -->
+                <span class="mark-as-read-btn" (click)="markAsRead(notification)">Mark as Read</span>
+            </a>
+            <hr>
+        </li>
+        <!-- "Delete All" option -->
+        <li>
+            <a class="dropdown-item delete-all-btn" (click)="deleteAllNotifications()">Delete All</a>
+        </li>
+    </ng-container>
+    <!-- Display message if no notifications -->
+    <ng-template #noNotifications>
+        <li><a class="dropdown-item">No notifications to display.</a></li>
+    </ng-template>
+</ul>

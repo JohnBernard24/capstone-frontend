@@ -1,3 +1,8 @@
+.navbar {
+    position: relative;
+    z-index: 1; /* Ensure the navbar is at a higher z-index than the dropdown */
+}
+
 .navbar-brand img {
     max-width: 105px; /* Adjust the maximum width as needed */
     height: auto; /* Maintain aspect ratio */
