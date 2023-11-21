@@ -1,0 +1,25 @@
+/* notification.component.css */
+
+.notification-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 1000; /* Adjust the z-index value based on your layout */
+}
+
+.notification {
+    padding: 10px;
+    background-color: #fff; /* Set the background color as needed */
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.mark-as-read-btn, .delete-all-btn {
+    cursor: pointer;
+    color: #007bff;
+    margin-right: 10px;
+    font-size: 12px;
+}
