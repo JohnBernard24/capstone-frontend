@@ -1,7 +1,7 @@
 .photo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 5px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 10px;
   }
   
   .photo-item {
@@ -17,7 +17,7 @@
   }
 
   .plus-icon {
-    font-size: 55px; /* Adjust the font size to make the plus icon larger */
+    font-size: 150px; /* Adjust the font size to make the plus icon larger */
     color: #555; /* Adjust the color of the plus icon */
     cursor: pointer;
 }

@@ -24,6 +24,7 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { ChangePassComponent } from '@components/change-pass/change-pass.component';
 import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
 import { ChangepasswordComponent } from './pages/changepassword/changepassword.component';
+import { AllAlbumComponent } from './components/all-album/all-album.component';
 
 
 const appRoutes: Routes = [
@@ -34,10 +35,10 @@ const appRoutes: Routes = [
   {path: 'profile', component:ProfileComponent},
   {path: 'settings', component:SettingsComponent},
   {path: 'forgot-password', component:ForgotComponent},
-  {path: 'change-password', component:ChangepasswordComponent}
+  {path: 'change-password', component:ChangepasswordComponent},
+  {path: 'album', component:PhotoalbumComponent}
 
- 
-  
+
 ];
 
 @NgModule({
@@ -61,7 +62,8 @@ const appRoutes: Routes = [
     SettingsComponent,
     ChangePassComponent,
     ForgotPassComponent,
-    ChangepasswordComponent
+    ChangepasswordComponent,
+    AllAlbumComponent
   ],
   imports: [
     BrowserModule,
