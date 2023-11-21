@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 import { SessionService } from 'src/app/services/session.service';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private sessionService: SessionService,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private toast: NgToastService
   ){}
 
   ngOnInit(): void {}
@@ -33,16 +35,17 @@ export class LoginComponent implements OnInit {
 
   successfulLogin(response: Record<string, any>) {
     
-    this.sessionService.setEmail(response['email'])
-    this.sessionService.setToken(response['token'])
-    this.router.navigate(['']).then(() => {
-      window.location.href = '/home'
-    })
+    this.toast.success({detail: "SUCCESS", summary: "Login Successful", duration: 5000});
+    this.sessionService.setEmail(response['email']);
+    this.sessionService.setToken(response['token']);
+    this.sessionService.setUserId(response['userId']);
+
+    this.router.navigate(['/home'])
   }
 
   failedLogin(result: Record<string, any>) {
-    let data: Record<string, any> = result['error']
-    console.log(data);
+    this.toast.error({detail: "ERROR", summary: result["error"], duration: 5000});
+    console.log(result['error']);
   }
 
 }

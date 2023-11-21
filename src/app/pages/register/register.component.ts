@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +16,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private toast: NgToastService
   ){}
 
 
@@ -29,12 +31,12 @@ export class RegisterComponent implements OnInit {
   }
 
   successfulRegister(response: Record<string, any>) {
-    console.log(response)
-    this.router.navigate(['/login'])
+    this.toast.success({detail: "SUCCESS", summary: response["result"], duration: 5000});
+    this.router.navigate(['/login']);
   }
 
   failedRegister(result: Record<string, any>) {
-    console.log(result)
+    this.toast.error({detail: "ERROR", summary: result["error"], duration: 5000});
   }
 
 }
