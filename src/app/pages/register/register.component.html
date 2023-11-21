@@ -34,7 +34,9 @@
                   <label for="mobileNumber">Mobile Number:</label>
                   <input type="text" id="mobileNumber" name="mobileNumber" pattern="[0-9]{10}" required title="Please enter a 10-digit phone number" placeholder="Mobile Number" [(ngModel)]="user.phoneNumber" >
             
-                  <button class="btn">Register</button>
+                  <button class="btn mb-2">Register</button>
+                  <span>Already have an account? 
+                    <a routerLink="/login">Log in</a></span>
               </form> 
                     </div>
                 </div>
