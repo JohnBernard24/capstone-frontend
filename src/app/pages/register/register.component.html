@@ -9,30 +9,30 @@
                     </div> -->
                   </div>
               <form (ngSubmit)="onRegister()" id="registrationForm" action="login.html" method="post" class="registration-form">
-                <label for="FirstName">First Name:</label>
-                  <input type="text" id="FirstName" name="FirstName" placeholder="First Name" [(ngModel)]="user.FirstName" required>
+                <label for="firstName">First Name:</label>
+                  <input type="text" id="firstName" name="firstName" placeholder="First Name" [(ngModel)]="user.firstName" required>
 
-                  <label for="LastName">Last Name</label>
-                  <input type="text" id="LastName" name="LastName" placeholder="Last Name" [(ngModel)]="user.LastName" required>
+                  <label for="lastName">Last Name</label>
+                  <input type="text" id="lastName" name="lastName" placeholder="Last Name" [(ngModel)]="user.lastName" required>
             
-                  <label for="Email">Email:</label>
-                  <input type="email" id="Email" name="Email" placeholder="Email Address" [(ngModel)]="user.Email" required>
+                  <label for="email">Email:</label>
+                  <input type="email" id="email" name="email" placeholder="Email Address" [(ngModel)]="user.email" required>
             
                   <label for="password">Password:</label>
-                  <input type="password" id="password" name="password" placeholder="Password" [(ngModel)]="user.Password" required>
+                  <input type="password" id="password" name="password" placeholder="Password" [(ngModel)]="user.password" required>
                 
                   <label for="birthday">Birthday:</label>
-                  <input type="date" id="birthday" name="birthday" placeholder="Birthday" [(ngModel)]="user.BirthDate" required>
+                  <input type="date" id="birthday" name="birthday" placeholder="Birthday" [(ngModel)]="user.birthDate" required>
             
                   <label for="gender" class="pe-2">Gender:</label>
-                  <select id="gender" name="gender" class="mb-3" [(ngModel)]="user.Sex" >
+                  <select id="gender" name="gender" class="mb-3" [(ngModel)]="user.sex" >
                       <option value="Male">Male</option>
                       <option value="Female">Female</option>
                       <option value="Other">Other</option>
                   </select>
                   <br>
                   <label for="mobileNumber">Mobile Number:</label>
-                  <input type="text" id="mobileNumber" name="mobileNumber" pattern="[0-9]{10}" required title="Please enter a 10-digit phone number" placeholder="Mobile Number" [(ngModel)]="user.PhoneNumber" >
+                  <input type="text" id="mobileNumber" name="mobileNumber" pattern="[0-9]{10}" required title="Please enter a 10-digit phone number" placeholder="Mobile Number" [(ngModel)]="user.phoneNumber" >
             
                   <button class="btn">Register</button>
               </form> 

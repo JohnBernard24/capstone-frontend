@@ -1,102 +1,104 @@
+import { Photo } from "./photo";
+
 export class User {
     constructor(
-        public Id?: number,
-        public FirstName?: string,
-        public LastName?: string,
-        public Email?: string,
-        public Password?: string,
-        public BirthDate?: Date,
-        public Sex?: string,
-        public PhoneNumber?: string,
-        public AboutMe?: string,
-        public ProfileImageId?: number,
-        public Photo?: object
+        public id?: number,
+        public firstName?: string,
+        public lastName?: string,
+        public email?: string,
+        public password?: string,
+        public birthDate?: Date,
+        public sex?: string,
+        public phoneNumber?: string,
+        public aboutMe?: string,
+        public profileImageId?: number,
+        public photo?: Photo
     ){}   
 }
 
 export class UserRegisterDTO {
     constructor(
-        public FirstName?: string,
-        public LastName?: string,
-        public Email?: string,
-        public Password?: string,
-        public BirthDate?: Date,
-        public Sex?: string,
-        public PhoneNumber?: string
+        public firstName?: string,
+        public lastName?: string,
+        public email?: string,
+        public password?: string,
+        public birthDate?: Date,
+        public sex?: string,
+        public phoneNumber?: string
     ){}
 }
 
 export class UserLoginDTO {
     constructor(
-        public Email?: string,
-        public Password?: string
+        public email?: string,
+        public password?: string
     ){}
 }
 
 export class LoginResponse {
     constructor(
-        public UserId?: number,
-        public Email?: string,
-        public Password?: string
+        public userId?: number,
+        public email?: string,
+        public password?: string
     ){}
 }
 
 export class ProfileDTO {
     constructor(
-        public FirstName?: string,
-        public LastName?: string,
-        public BirthDate?: Date,
-        public Sex?: string,
-        public PhoneNumber?: string,
-        public AboutMe?: string
+        public firstName?: string,
+        public lastName?: string,
+        public birthDate?: Date,
+        public sex?: string,
+        public phoneNumber?: string,
+        public aboutMe?: string
     ){}
 }
 
 export class MiniProfileDTO {
     constructor(
-        public FirstName?: string,
-        public LastName?: string,
-        public Photo?: object,
-        public FriendCount?: number
+        public firstName?: string,
+        public lastName?: string,
+        public photo?: Photo,
+        public friendCount?: number
     ){}
 }
 
 export class EditEmailDTO {
     constructor(
-        public Email?: string
+        public email?: string
     ){}
 }
 
 export class EditPasswordDTO {
     constructor(
-        public Password?: string
+        public password?: string
     ){}
 }
 
 export class ProfilePictureDTO {
     constructor(
-        public ProfileImageId?: number,
-        public Photo?: object
+        public profileImageId?: number,
+        public photo?: object
     ){}
 }
 
 export class AboutMeDTO {
     constructor(
-        public AboutMe?: string
+        public aboutMe?: string
     ){}
 }
 
 export class ProfileViewResponse {
     constructor(
-        public UserId?: number,
-        public FirstName?: string,
-        public LastName?: string,
-        public Email?: string,
-        public BirthDate?: Date,
-        public Sex?: string,
-        public PhoneNumber?: string,
-        public AboutMe?: string,
-        public ProfileImageId?: number,
-        public Photo?: object
+        public userId?: number,
+        public firstName?: string,
+        public lastName?: string,
+        public email?: string,
+        public birthDate?: Date,
+        public sex?: string,
+        public phoneNumber?: string,
+        public aboutMe?: string,
+        public profileImageId?: number,
+        public photo?: object
     ){}
 }

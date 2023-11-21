@@ -1,12 +1,16 @@
+//import { Post } from "./post";
+import { User } from "./user";
+
+
 export class Comment {
     constructor(
         public Id?: number,
         public CommentContent?: string,
         public DateCommented?: Date,
         public PostId?: number,
-        public Post?: object,
+        //public Post?: Post,
         public CommenterId?: number,
-        public User?: object
+        public User?: User
     ){}
 }
 export class CommentDTO {

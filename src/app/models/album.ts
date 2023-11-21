@@ -1,9 +1,12 @@
+import { User } from "./user";
+import { Photo } from "./photo";
+
 export class Album {
     constructor(
         public Id?: number,
         public AlbumName?: string,
         public UserId?: number,
-        public User?: object
+        public User?: User
     ){}
 }
 
@@ -16,7 +19,7 @@ export class AlbumDTO {
 
 export class AlbumWithFirstPhoto {
     constructor(
-        public Album?: object,
-        public Photo?: object
+        public Album?: Album,
+        public Photo?: Photo
     ){}
 }
