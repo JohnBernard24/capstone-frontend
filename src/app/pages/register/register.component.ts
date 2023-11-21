@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
-import { User } from 'src/app/models/user';
+import { UserRegisterDTO } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 import { NgToastService } from 'ng-angular-popup';
 
@@ -12,7 +12,7 @@ import { NgToastService } from 'ng-angular-popup';
 })
 export class RegisterComponent implements OnInit {
   
-  user: User = new User()
+  user: UserRegisterDTO = new UserRegisterDTO()
 
   constructor(
     private userService: UserService,
