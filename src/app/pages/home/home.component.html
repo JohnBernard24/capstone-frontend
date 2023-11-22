@@ -10,9 +10,9 @@
     <div class="row pt-5 pe-5 ps-5 justify-content-center gap-2">
         <div class="col-3 d-block p-3 custom-div d-none d-lg-flex d-flex flex-column align-items-center text-center">
             <img src="/assets/images/bg.jpg" alt="Profile Photo" class="rounded-circle mb-3" width="100" height="100">
-            <h1>Timothy Dy</h1>
+            <h1>{{ miniProfileDTO.firstName + " " + miniProfileDTO.lastName }}</h1>
             <p class="pb-2">Software Developer Trainee</p>
-            <h4>10</h4>
+            <h4>{{ miniProfileDTO.friendCount }}</h4>
             <p>Friends</p>
             <h5 class="text-primary pt-3" style="font-weight: bold;"><a routerLink="/profile" style="text-decoration: none;">View My Profile</a></h5>
         </div>
@@ -39,8 +39,9 @@
             </div>
         </div>        
 
-        <div class="col-3 d-block p-3 custom-div d-none d-lg-flex">
-            <app-requests></app-requests>
+        <div class="col-3 d-block p-3 custom-div d-none d-lg-flex flex-row">
+            <h6>Friend Requests</h6>
+            <app-requests *ngFor="let friend of friends" [friend]="friend"></app-requests>
         </div>
     </div>
 
