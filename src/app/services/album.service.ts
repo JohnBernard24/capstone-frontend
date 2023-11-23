@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Album, AlbumDTO } from '../models/album';
+import { Album, AlbumDTO, AlbumWithFirstPhoto } from '../models/album';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +18,8 @@ export class AlbumService {
     return this.http.post(this.baseUrl + '/add-album', albumDTO)
   }
 
-  getAllAlbums(userId: number): Observable<Object> {
-    return this.http.get(`${this.baseUrl}/get-all-albums/${userId}`)
+  getAllAlbums(userId: number): Observable<Album[]> {
+    return this.http.get<Album[]>(`${this.baseUrl}/get-all-albums/${userId}`)
   }
 
   getAllPhotos(albumId: number): Observable<Object> {
@@ -36,6 +36,10 @@ export class AlbumService {
 
   getMiniAlbum(userId: number): Observable<Object> {
     return this.http.get(`${this.baseUrl}/get-mini-album`)
+  }
+
+  getFirstPhoto(userId: number): Observable<AlbumWithFirstPhoto[]> {
+    return this.http.get<AlbumWithFirstPhoto[]>(`${this.baseUrl}/get-first-photo/${userId}`)
   }
 
   
