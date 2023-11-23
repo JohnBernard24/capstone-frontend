@@ -38,5 +38,6 @@ export class RegisterComponent implements OnInit {
   failedRegister(result: Record<string, any>) {
     this.toast.error({detail: "ERROR", summary: result["error"], duration: 5000});
   }
+  
 
 }
