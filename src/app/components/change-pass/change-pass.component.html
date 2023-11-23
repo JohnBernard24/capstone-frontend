@@ -1,6 +1,7 @@
 <p class="lock-icon"><i class="fas fa-lock"></i></p>
 <h2>Change Password</h2>
 <p>Input your new Password</p>
-<input type="password" class="passInput mx-auto" placeholder="New Password">
-<input type="password" class="passInput mx-auto" placeholder="Confirm New Password">
-<button class="btn mx-auto">Change Password</button>
+<form (ngSubmit)="onSubmit()">
+    <input type="text" class="passInput mx-auto" name="password" placeholder="New Password" [(ngModel)]="editPasswordDTO">
+    <button class="btn mx-auto">Change Password</button>
+</form>

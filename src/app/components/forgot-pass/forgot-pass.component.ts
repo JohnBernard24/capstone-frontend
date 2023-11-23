@@ -39,6 +39,6 @@ export class ForgotPassComponent implements OnInit {
   }
 
   emailNotSent(response: Record<string, any>){
-    this.toast.success({detail: "SUCCESS", summary: response["message"], duration: 5000})
+    this.toast.success({detail: "ERROR", summary: response["message"], duration: 5000})
   }
 }

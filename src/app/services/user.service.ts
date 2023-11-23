@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { MiniProfileDTO, User, UserRegisterDTO } from '../models/user';
+import { EditEmailDTO, EditPasswordDTO, MiniProfileDTO, User, UserRegisterDTO } from '../models/user';
 import { Post } from '../models/post';
 
 @Injectable({
@@ -37,5 +37,14 @@ export class UserService {
     return this.http.get<Post[]>(this.baseUrl + `timeline/get-newsfeed-posts${userId}`);
   }
 
+
+
+  editPassword(editPasswordDTO: EditPasswordDTO): Observable<EditPasswordDTO>{
+    return this.http.put(this.baseUrl + "profile/edit-password", editPasswordDTO);
+  }
+
+  editEmail(editEmailDTO: EditEmailDTO): Observable<EditEmailDTO>{
+    return this.http.put(this.baseUrl + "profile/edit-email", editEmailDTO);
+  }
   
 }
