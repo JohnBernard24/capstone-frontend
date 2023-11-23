@@ -26,8 +26,11 @@ export class RegisterComponent implements OnInit {
   onRegister() {
     this.userService.register(this.user).subscribe({next: this.successfulRegister.bind(this),
       error: this.failedRegister.bind(this)
+      
     
     })
+    this.router.navigate(['/profile']);
+
   }
 
   successfulRegister(response: Record<string, any>) {
