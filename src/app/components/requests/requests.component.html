@@ -5,7 +5,7 @@
     </div>
     <div class="friend-buttons">
         <button class="btn accept-btn" (click)="acceptRequest(friend.id, friend)">Accept</button>
-        <button class="btn ignore-btn">Ignore</button>
+        <button class="btn ignore-btn" (click)="removeRequest(friend.id, friend)">Ignore</button>
     </div>
 </div>
 
