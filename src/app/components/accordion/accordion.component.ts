@@ -20,4 +20,9 @@ export class AccordionComponent {
   // toggleItem(itemId: string): void {
   //   this.activeItem = this.activeItem === itemId ? '' : itemId;
   // }
+  activeTab = 'account-general';
+
+  switchTab(tabId: string) {
+    this.activeTab = tabId;
+  }
 }
