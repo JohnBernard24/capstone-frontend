@@ -85,14 +85,20 @@
                                 </div>
                                 <div class="col-2">
                                     <div class="input-group">
+
                                         <span><i aria-hidden="true" class="fa fa-lock"></i></span>
-                                        <input class="input--style-4"  type="password" id="password" name="password" placeholder="Confirm Password" required>
+                                        
+                                        <input class="input--style-4"  type="password" id="password" name="confirmPassword" [(ngModel)]="confirmPassword" placeholder="Confirm Password" required>
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="alert alert-warning" role="alert" [hidden]="user.password == confirmPassword">
+                              Password and confirm password values do not match.
+                          </div>
                             
                             <div class="text-center text-lg-start mt-2 pt-2">
-                                <button class="btn-primary btn-lg form-control form-rounded form-outline mb-4" style="padding-left: 2rem; padding-right: 2rem;" type="submit">Register</button>
+                              <button class="btn-primary btn-lg form-control form-rounded form-outline mb-4" style="padding-left: 2rem; padding-right: 2rem;" type="submit">Register</button>
                             </div>
                             <div class="p-t-10">
                             <span>Already have an account? 
