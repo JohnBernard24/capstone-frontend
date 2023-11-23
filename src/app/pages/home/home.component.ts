@@ -47,5 +47,46 @@ export class HomeComponent implements OnInit{
     this.friends = this.friends.filter(friendEntry => friendEntry != givenFriend);
   }
 
+  onFileSelected(event: any): void {
+    const selectedFile = event.target.files && event.target.files[0];
   
+    if (selectedFile) {
+      // Ensure that miniProfileDTO, photo, and photoImage are defined before passing to uploadImage
+      if (
+        this.miniProfileDTO &&
+        this.miniProfileDTO.photo &&
+        this.miniProfileDTO.photo.photoImage
+      ) {
+        this.miniProfileDTO.photo.photoImage = selectedFile;
+        // this.uploadImage(this.miniProfileDTO.photo.photoImage);
+      } else {
+        console.error('miniProfileDTO, photo, or photoImage is undefined');
+        // Handle the case where miniProfileDTO, photo, or photoImage is undefined
+      }
+    } else {
+      console.error('No file selected');
+      // Handle the case where no file is selected
+    }
+  }
+  
+  
+  
+
+
+  // uploadImage(file: File): void {
+  //   const formData: FormData = new FormData();
+  //   formData.append('file', file, file.name);
+  
+  //   this.http.post('your-api-endpoint', formData).subscribe(
+  //     (response) => {
+  //       // Handle the response from the backend
+  //     },
+  //     (error) => {
+  //       // Handle errors
+  //     }
+  //   );
+  // }
+
+  // addPost()
+
 }
