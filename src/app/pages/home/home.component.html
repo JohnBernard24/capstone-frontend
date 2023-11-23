@@ -26,16 +26,11 @@
             <div class="custom-div">
                 <!-- Content changes dynamically based on the button clicked -->
                 <textarea placeholder="Type your post here"></textarea>
-                 <!-- <ng-container *ngIf="contentType === 'photo'">
-                    <form action="/action_page.php">
-                        <label for="myfile">Select files:</label>
-                        <input type="file" id="myfile" name="myfile" multiple><br><br>
-                        <input type="submit">
-                    </form>
-                </ng-container>  -->
+                <!-- image-upload.component.html -->
+                <input type="file" (change)="onFileSelected($event)" />
             </div>
             <div class="custom-div text-end">
-                <button id="postButton" class="btn mt-2">Post</button>
+                <button id="postButton" class="btn mt-2" >Post</button>
             </div>
         </div>        
 

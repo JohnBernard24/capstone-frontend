@@ -40,6 +40,8 @@ body {
     background-color: #BED4E9;
     color: #3373B0;
 }
+
+
 .form input {
     font-family: "Roboto", sans-serif;
     outline: 0;
@@ -54,18 +56,19 @@ body {
   
 .form button {
     font-family: "Roboto", sans-serif;
-    text-transform: uppercase;
     outline: 0;
-    background-color: #1C2127;
-    width: 100%;
     border: 0;
-    padding: 15px;
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
     color: #FFFFFF;
-    font-size: 15px;
+    font-size: 16px;
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
     cursor: pointer;
   }
+
+  
   .form .message {
     margin: 15px 0 0;
     color: #E7F1FB;
