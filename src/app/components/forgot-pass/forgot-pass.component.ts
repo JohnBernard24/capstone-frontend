@@ -25,5 +25,20 @@ export class ForgotPassComponent implements OnInit {
     this.userService.sendEmail(Number(this.userId), this.email).subscribe((response: Record<string, any>) => {
       this.toast.success({detail: "SUCCESS", summary: "Email verification sent!", duration: 5000})
     });
+
+    this.userService.sendEmail(Number(this.userId), this.email).subscribe({next: this.emailSent.bind(this),
+      error: this.emailNotSent.bind(this)
+    
+    })
+
+  }
+
+  emailSent(){
+    this.toast.success({detail: "SUCCESS", summary: "Email verification sent!", duration: 5000})
+    //add the route to navigate or change the component that is being displayed in the forgot password
+  }
+
+  emailNotSent(response: Record<string, any>){
+    this.toast.success({detail: "SUCCESS", summary: response["message"], duration: 5000})
   }
 }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Notification } from 'src/app/models/notification';
+import { NotificationService } from 'src/app/services/notification.service';
+import { SessionService } from 'src/app/services/session.service';
 
 @Component({
   selector: 'app-notifications',
@@ -6,6 +9,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notifications.component.css']
 })
 export class NotificationsComponent implements OnInit {
+  private userId: number = Number(this.sessionService.getUserId());
+  // notifications: Notification[] = [];
+  // context: any[] = [];
+
   notifications: any[] = [
     { sender: 'Blessie Balagtas', action: "liked", type: 'photo', read: false },
     { sender: 'John Bernard Tinio', action: "commented on", type: 'post', read: false },
@@ -13,9 +20,22 @@ export class NotificationsComponent implements OnInit {
     // Add more notifications as needed
   ];
 
-  ngOnInit() {
-    // Initialize or fetch notifications here
+  ngOnInit() {}
+
+  constructor(
+    private sessionService: SessionService,
+    private notificationService: NotificationService
+  ){
+    // this.getNotificationLists(this.userId);
   }
+  // getNotificationLists(userId: number) {
+  //   this.notificationService.getNotificationLists(userId).subscribe((response: Notification[]) =>{
+  //     this.notifications = response;
+  //   },
+  //   (error) => {
+  //       console.error("Error fetching notifications", error);
+  //   });
+  // }
 
   markAsRead(notification: any) {
     // Perform actions to mark the notification as read

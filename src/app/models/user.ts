@@ -56,6 +56,7 @@ export class ProfileDTO {
 
 export class MiniProfileDTO {
     constructor(
+        public Id?: number,
         public firstName?: string,
         public lastName?: string,
         public photo?: Photo,
