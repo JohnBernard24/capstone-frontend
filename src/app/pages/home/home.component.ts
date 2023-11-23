@@ -14,7 +14,6 @@ import { UserService } from 'src/app/services/user.service';
 export class HomeComponent implements OnInit{
   miniProfileDTO: MiniProfileDTO = new MiniProfileDTO();
   friends: Friend[] = [];
-  posts: Post[] = [];
   private userId: number = Number(this.sessionService.getUserId());
   
   constructor(
@@ -24,19 +23,9 @@ export class HomeComponent implements OnInit{
   ){
     this.getProfile(this.userId);
     this.getFriendRequests(this.userId);
-    this.getNewsFeedPosts(this.userId);
   }
   ngOnInit(): void {}
-
-  getNewsFeedPosts(userId: number){
-    this.userService.getNewsFeedPosts(userId).subscribe((response: Post[]) => {
-      this.posts = response;
-    },
-    (error) => {
-      console.error("Error fetching newsfeed posts", error);
-    });
-  }
-
+  
   getProfile(userId: number) {
     this.userService.getProfile(userId).subscribe(
       (response: MiniProfileDTO) => {

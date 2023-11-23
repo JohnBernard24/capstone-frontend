@@ -22,84 +22,42 @@
           <div class="registration-page">
           
                 <div class="form">
-                    <div class="registration">
-                        <h2 class="title text-center">Register Account</h2>
-                        <h6 class="text-center">Socialize. Connect. Paste It!</h6>
-                        <form (ngSubmit)="onRegister()" id="registrationForm" action="login.html" method="post" class="registration-form">
-                            <div class="row row-space">
-                                <div class="col-2">
-                                    <div class="input-group ">
-                                        <span><i aria-hidden="true" class="fa fa-user"></i></span>
-                                        
-                                        <input type="text" id="firstName" name="firstName" placeholder="First Name" [(ngModel)]="user.firstName" class="input--style-4 "  required>
-                                    </div>
-                                </div>
-                                <div class="col-2">
-                                    <div class="input-group">
-                                        <span><i aria-hidden="true" class="fa fa-user"></i></span>
-                                        <input type="text" id="firstName" name="firstName" placeholder="First Name" [(ngModel)]="user.lastName" class="input--style-4"  required>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row row-space">
-                                <div class="col-2">
-                                    <div class="input-group">
-                                        <span><i aria-hidden="true" class="fa fa-birthday-cake"></i></span>
-                                        
-                                            <input type="date" id="birthday" name="birthday" placeholder="Birthday" [(ngModel)]="user.birthDate" class="input--style-4" required>
-                                        </div>
-                                    
-                                </div>
-                                <div class="col-2">
-                                    <div class="input-group">
-                                        <span><i aria-hidden="true" class="fa fa-venus-mars"></i></span>
-                                        
-                                            <select id="gender" name="gender" class="input--style-4 form-control form-rounded form-outline mb-4" [(ngModel)]="user.sex">
-                                                <option value="Gender" disabled selected >Gender</option>
-                                                    <option value="male">Male &#9794;</option>
-                                                    <option value="female">Female &#9792;</option>
-                                                    <option value="other">Other</option>
-                                                </select>
-                                        </div>
-                                    </div>
-                                
-                            </div>
-                            <div class="row row-space">
-                                <div class="col-2">
-                                    <div class="input-group">
-                                        <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
-                                     <input type="email" id="email" name="email" placeholder="Email Address" [(ngModel)]="user.email" class="input--style-4"required>
-                                    </div>
-                                </div>
-                                <div class="col-2">
-                                    <div class="input-group">
-                                        <span><i aria-hidden="true" class="fa fa-phone"></i></span>
-                                        <input class="input--style-4" type="text" id="mobileNumber" name="mobileNumber" pattern="[0-9]{10}" required title="Please enter a 10-digit phone number" placeholder="Mobile Number" [(ngModel)]="user.phoneNumber" >
-                                    </div>
-                                </div>
-                                <div class="col-2">
-                                    <div class="input-group">
-                                        <span><i aria-hidden="true" class="fa fa-lock"></i></span>
-                                        <input class="input--style-4"  type="password" id="password" name="password" placeholder="Password" [(ngModel)]="user.password" required>
-                                    </div>
-                                </div>
-                                <div class="col-2">
-                                    <div class="input-group">
-                                        <span><i aria-hidden="true" class="fa fa-lock"></i></span>
-                                        <input class="input--style-4"  type="password" id="password" name="password" placeholder="Confirm Password" required>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="text-center text-lg-start mt-2 pt-2">
-                                <button class="btn-primary btn-lg form-control form-rounded form-outline mb-4" style="padding-left: 2rem; padding-right: 2rem;" type="submit">Register</button>
-                            </div>
-                            <div class="p-t-10">
-                            <span>Already have an account? 
-                        <a routerLink="/login">Login </a></span>
-                            </div>
-                        </form>
-                    
+                  <div class="registration">
+                    <!-- <div class="registration-header">
+                        <img class="img-fluid pb-2" src="assets/images/Logo1_dark.PNG">
+                    </div> -->
+                  </div>
+              <form (ngSubmit)="onRegister()" id="registrationForm" action="login.html" method="post" class="registration-form">
+                <label for="firstName">*First Name:</label>
+                  <input type="text" id="firstName" name="firstName" placeholder="First Name" [(ngModel)]="user.firstName" required>
+
+                  <label for="lastName">*Last Name:</label>
+                  <input type="text" id="lastName" name="lastName" placeholder="Last Name" [(ngModel)]="user.lastName" required>
+            
+                  <label for="email">*Email:</label>
+                  <input type="email" id="email" name="email" placeholder="Email Address" [(ngModel)]="user.email" required>
+            
+                  <label for="password">*Password:</label>
+                  <input type="password" id="password" name="password" placeholder="Password" [(ngModel)]="user.password" required>
+                
+                  <label for="birthday">*Birthday:</label>
+                  <input type="date" id="birthday" name="birthday" placeholder="Birthday" [(ngModel)]="user.birthDate" required>
+            
+                  <label for="gender" class="pe-2">Gender:</label>
+                  <select id="gender" name="gender" class="mb-3" [(ngModel)]="user.sex" >
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Other">Other</option>
+                  </select>
+                  <br>
+                  <label for="mobileNumber">Mobile Number:</label>
+                  <input type="text" id="mobileNumber" name="mobileNumber" pattern="[0-9]{10}" required title="Please enter a 10-digit phone number" placeholder="Mobile Number" [(ngModel)]="user.phoneNumber" >
+            
+                  <button class="btn mb-2">Register</button>
+                  <span>Already have an account? 
+                    <a routerLink="/login">Log in</a></span>
+              </form> 
+                    </div>
                 </div>
             </div>
         </div>
@@ -116,6 +74,4 @@
         <img class="img-fluid pb-2" src="assets/images/Logo1.PNG">
     </div>
     </div>
-    </div>
-  </div>
 </body>

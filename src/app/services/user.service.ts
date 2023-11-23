@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { MiniProfileDTO, ProfileDTO, User, UserRegisterDTO } from '../models/user';
+import { EditEmailDTO, EditPasswordDTO, MiniProfileDTO, ProfileDTO, User, UserRegisterDTO } from '../models/user';
 import { Post } from '../models/post';
 
 @Injectable({
@@ -25,21 +25,30 @@ export class UserService {
     return this.http.post(this.baseUrl + 'authentication/login', {email, password})
   }
 
-  sendEmail(userId: number, recipientEmail: string): Observable<Object> {
-    return this.http.post(this.baseUrl + `authentication/verify-email`, {userId, recipientEmail});
+  sendEmail(recipientEmail: string): Observable<Object> {
+    return this.http.post(this.baseUrl + `authentication/verify-email/${recipientEmail}`, {});
   }
 
   getProfile(userId: number): Observable<MiniProfileDTO>{
-    return this.http.get<MiniProfileDTO>(this.baseUrl + `profile/get-profile/${userId}`);
+    return this.http.get<MiniProfileDTO>(this.baseUrl + `profile/get-mini-profile/${userId}`);
   }
 
   getNewsFeedPosts(userId: number): Observable<Post[]>{
-    return this.http.get<Post[]>(this.baseUrl + `timeline/get-newsfeed-posts${userId}`);
+    return this.http.get<Post[]>(this.baseUrl + `timeline/get-newsfeed-posts/${userId}`);
   }
 
   editAboutMe(userId: number, profileDTO: ProfileDTO): Observable<ProfileDTO>{
     return this.http.put(this.baseUrl + `profile/edit-about-me/${userId}`, profileDTO);
   }
 
+
+
+  editPassword(editPasswordDTO: EditPasswordDTO): Observable<EditPasswordDTO>{
+    return this.http.put(this.baseUrl + "profile/edit-password", editPasswordDTO);
+  }
+
+  editEmail(editEmailDTO: EditEmailDTO): Observable<EditEmailDTO>{
+    return this.http.put(this.baseUrl + "profile/edit-email", editEmailDTO);
+  }
   
 }
