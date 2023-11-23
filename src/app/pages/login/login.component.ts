@@ -26,6 +26,21 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
+
+    if (this.email == "" && this.password == ""){
+      this.toast.error({detail: "ERROR", summary: "Please input your email and password.", duration: 5000});
+      return;
+    }
+    else if (this.email == ""){
+      this.toast.error({detail: "ERROR", summary: "Please input your email.", duration: 5000});
+      return;
+    }
+    else if (this.password == ""){
+      this.toast.error({detail: "ERROR", summary: "Please input your password.", duration: 5000});
+      return;
+    }
+
+
     this.userService.login(this.email,this.password).subscribe({next: this.successfulLogin.bind(this),
       error: this.failedLogin.bind(this)
     
@@ -43,7 +58,7 @@ export class LoginComponent implements OnInit {
   }
 
   failedLogin(result: Record<string, any>) {
-    this.toast.error({detail: "ERROR", summary: result["error"], duration: 5000});
+    this.toast.error({detail: "ERROR", summary: "Invalid credentials.", duration: 5000});
     console.log(result['error']);
   }
 

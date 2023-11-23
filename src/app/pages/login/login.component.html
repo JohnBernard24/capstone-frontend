@@ -12,9 +12,9 @@
               <h3 class="text-center">Login Account</h3>
               <h6 class="text-center">Socialize. Connect. Paste It!</h6>
               <form (ngSubmit)="onSubmit()" class="login-form mt-4">
-                <label for="email">Email Address</label>
+                <label for="email">Email Address:</label>
                 <input class="rounded p-2" type="email" placeholder="Enter email" name="email" [(ngModel)]="email" required/>
-                <label for="password">Password</label>
+                <label for="password">Password:</label>
                 <input class="rounded p-2" type="password" placeholder="Enter password" name="password" [(ngModel)]="password" required/>
                 <button class="btn mt-3">login</button>
                 <p class="message text-center" style="font-size: 14px;"><a routerLink="/register" class="text-decoration-underline">Create an account</a></p>

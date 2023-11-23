@@ -66,13 +66,16 @@ export class MiniProfileDTO {
 
 export class EditEmailDTO {
     constructor(
-        public email?: string
+        public userId?: number,
+        public newEmail?: string
     ){}
 }
 
 export class EditPasswordDTO {
     constructor(
-        public password?: string
+        public userId?: number,
+        public currentPassword?: string,
+        public newPassword?: string
     ){}
 }
 
