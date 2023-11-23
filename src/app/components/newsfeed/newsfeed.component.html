@@ -1,4 +1,4 @@
-<div id="newsfeed">
+<!-- <div id="newsfeed">
     <div class="post" *ngFor="let post of posts">
       <p>{{ post.content }}</p>
       <div class="actions">
@@ -14,4 +14,166 @@
       </div>
       <div class="likes">{{ post.likes }} Likes</div>
     </div>
+  </div> -->
+
+  <body>
+    <!-- Post -->
+  <div class="card gedf-card mb-4">
+    <div class="post" *ngFor="let post of posts">
+    <div class="card-header" >
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="mr-2">
+                    <img class="rounded-circle me-2" width="47" height="47" src="/assets/images/bg.jpg" alt="">
+                </div>
+                <div class="ml-2">
+                    <div class="h5 m-0">Tim Dy</div>
+                    <!-- <div class="h7 text-muted">Mark Lee Smith</div> -->
+                </div>
+            </div>
+            <div>
+              
+                <div class="dropdown">
+                   <i class="fa fa-clock-o text-muted h7 mb-2"></i>10 min ago
+                    <button class="btn btn-link dropdown-toggle" type="button" id="gedf-drop1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-ellipsis-h"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
+                        <div class="h6 dropdown-header">Configuration</div>
+                        <a class="dropdown-item">Save</a>
+                        <a class="dropdown-item">Hide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="card-body">
+            <h5 class="card-title"><strong>Lorem ipsum dolor sit amet, consectetur adip.</strong></h5>
+      
+        <p class="card-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo recusandae nulla rem eos ipsa praesentium esse magnam nemo dolor
+            sequi fuga quia quaerat cum, obcaecati hic, molestias minima iste voluptates.
+        </p>
+    </div>
+    <!-- <div class="card-footer">
+      <div class="likes">{{ post.likes }} Likes</div>
+        <a class="card-link click-btn" (click)="toggleLike(post)"><i class="fa fa-gittip click-btn"></i> Like</a>
+        <a class="card-link click-btn" (click)="showComments(post)"><i class="fa fa-comment click-btn"></i> Comment</a>
+        
+    </div>
+    
+    <div class="comments" *ngIf="post.showComments">
+      <textarea [(ngModel)]="post.newComment" placeholder="Write a comment"></textarea>
+      <button (click)="addComment(post)">Add Comment</button>
+      <ul>
+        <li *ngFor="let comment of post.comments">{{ comment }}</li>
+      </ul>
+    </div> -->
+
+                    <hr class="mb-1 opacity-1" />
+                    <div class="row text-center fw-bold">
+                        <div class="col">
+                            <a class="text-body text-opacity-50 text-decoration-none d-block p-2"> <i class="far fa-thumbs-up me-1 d-block d-sm-inline"></i> Likes </a>
+                        </div>
+                        <div class="col">
+                            <a class="text-body text-opacity-50 text-decoration-none d-block p-2"> <i class="far fa-comment me-1 d-block d-sm-inline"></i> Comment </a>
+                        </div>
+                    </div>
+                    <hr class="mb-3 mt-1 opacity-1" />
+
+                    <div class="d-flex align-items-center m-3">
+                      <img src="/assets/images/bg.jpg" alt="" width="40" height="40" class="rounded-circle" />
+                      <div class="flex-fill ps-2">
+                          <div class="position-relative d-flex align-items-center">
+                              <input type="text" class="form-control rounded-pill bg-white bg-opacity-15" style="padding-right: 120px;" placeholder="Write a comment..." />
+                              <div class="position-absolute end-0 text-center">
+                                  
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+</div>
+</div>
+<!-- End -->
+
+<!-- Post -->
+<div class="card gedf-card mb-4">
+  <div class="post" *ngFor="let post of posts">
+  <div class="card-header" >
+      <div class="d-flex justify-content-between align-items-center">
+          <div class="d-flex justify-content-between align-items-center">
+              <div class="mr-2">
+                  <img class="rounded-circle me-2" width="47" height="47" src="/assets/images/bg.jpg" alt="">
+              </div>
+              <div class="ml-2">
+                  <div class="h5 m-0">Tim Dy</div>
+                  <!-- <div class="h7 text-muted">Mark Lee Smith</div> -->
+              </div>
+          </div>
+          <div>
+              <div class="dropdown">
+                 <i class="fa fa-clock-o text-muted h7 mb-2"></i>10 min ago
+                  <button class="btn btn-link dropdown-toggle" type="button" id="gedf-drop1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fa fa-ellipsis-h"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
+                      <div class="h6 dropdown-header">Configuration</div>
+                      <a class="dropdown-item">Save</a>
+                      <a class="dropdown-item">Hide</a>
+                  </div>
+              </div>
+          </div>
+      </div>
   </div>
+  <div class="card-body">
+          <h5 class="card-title"><strong>Lorem ipsum dolor sit amet, consectetur adip.</strong> </h5>
+      <p class="card-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo recusandae nulla rem eos ipsa praesentium esse magnam nemo dolor
+          sequi fuga quia quaerat cum, obcaecati hic, molestias minima iste voluptates.
+      </p>
+  </div>
+  <!-- <div class="card-footer">
+    <div class="likes">{{ post.likes }} Likes</div>
+      <a class="card-link click-btn" (click)="toggleLike(post)"><i class="fa fa-gittip click-btn"></i> Like</a>
+      <a class="card-link click-btn" (click)="showComments(post)"><i class="fa fa-comment click-btn"></i> Comment</a>
+     
+  </div>
+  
+  <div class="comments" *ngIf="post.showComments">
+    <textarea [(ngModel)]="post.newComment" placeholder="Write a comment"></textarea>
+    <button (click)="addComment(post)">Add Comment</button>
+    <ul>
+      <li *ngFor="let comment of post.comments">{{ comment }}</li>
+    </ul>
+  </div> -->
+
+                <hr class="mb-1 opacity-1" />
+                    <div class="row text-center fw-bold">
+                        <div class="col">
+                            <a class="text-body text-opacity-50 text-decoration-none d-block p-2"> <i class="far fa-thumbs-up me-1 d-block d-sm-inline"></i> Likes </a>
+                        </div>
+                        <div class="col">
+                            <a class="text-body text-opacity-50 text-decoration-none d-block p-2"> <i class="far fa-comment me-1 d-block d-sm-inline"></i> Comment </a>
+                        </div>
+                    </div>
+                    <hr class="mb-3 mt-1 opacity-1" />
+
+                    <div class="d-flex align-items-center m-3">
+                      <img src="/assets/images/bg.jpg" alt="" width="40" height="40" class="rounded-circle" />
+                      <div class="flex-fill ps-2">
+                          <div class="position-relative d-flex align-items-center">
+                              <input type="text" class="form-control rounded-pill bg-white bg-opacity-15" style="padding-right: 120px;" placeholder="Write a comment..." />
+                              </div>
+                              
+                          
+                      </div>
+                      
+                  </div>
+</div>
+</div>
+<!-- End -->
+  </body>
+
+
+  

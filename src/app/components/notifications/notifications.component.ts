@@ -32,10 +32,14 @@ export class NotificationsComponent implements OnInit {
   deleteNotification(notification: any) {
     // Perform actions to delete a specific notification
     const index = this.notifications.indexOf(notification);
-    if (index !== -1) {
-        console.log(index)
-      this.notifications.splice(index, 1);
-    }
+    // if (index !== -1) {
+    //     console.log(index)
+    //   this.notifications.splice(index, 1);
+    // }
+
+    if (this.notifications.length > 0) {
+      this.notifications.shift();
+  }
   }
 
   deleteAllNotifications() {
