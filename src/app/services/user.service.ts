@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { EditEmailDTO, EditPasswordDTO, MiniProfileDTO, User, UserRegisterDTO } from '../models/user';
+import { EditEmailDTO, EditPasswordDTO, MiniProfileDTO, ProfileDTO, User, UserRegisterDTO } from '../models/user';
 import { Post } from '../models/post';
 
 @Injectable({
@@ -35,6 +35,10 @@ export class UserService {
 
   getNewsFeedPosts(userId: number): Observable<Post[]>{
     return this.http.get<Post[]>(this.baseUrl + `timeline/get-newsfeed-posts/${userId}`);
+  }
+
+  editAboutMe(userId: number, profileDTO: ProfileDTO): Observable<ProfileDTO>{
+    return this.http.put(this.baseUrl + `profile/edit-about-me/${userId}`, profileDTO);
   }
 
 
