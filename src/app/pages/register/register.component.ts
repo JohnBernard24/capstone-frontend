@@ -13,6 +13,7 @@ import { NgToastService } from 'ng-angular-popup';
 export class RegisterComponent implements OnInit {
   
   user: UserRegisterDTO = new UserRegisterDTO()
+  confirmPassword: string = '';
 
   constructor(
     private userService: UserService,
@@ -22,6 +23,13 @@ export class RegisterComponent implements OnInit {
 
 
   ngOnInit(): void {}
+
+  onSubmit() {
+    this.userService.register(this.user).subscribe({
+        next: this.successfulRegister.bind(this), 
+        error: this.failedRegister.bind(this)
+    });
+}
 
   onRegister() {
     this.userService.register(this.user).subscribe({next: this.successfulRegister.bind(this),

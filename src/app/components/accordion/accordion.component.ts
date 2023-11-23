@@ -6,6 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./accordion.component.css']
 })
 export class AccordionComponent {
+  public imageURL: string = '/assets/images/bg.jpg';
+
+  onFileChange(event: any): void {
+    const file = event.target.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onload = (e: any) => {
+        this.imageURL = e.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    }
+  }
   // // Define an array of accordion items
   // accordionItems = [
   //   { id: 'editProfile', title: 'Edit Profile', content: 'Your edit profile content here.' },
@@ -24,5 +39,7 @@ export class AccordionComponent {
 
   switchTab(tabId: string) {
     this.activeTab = tabId;
+
+    
   }
 }
