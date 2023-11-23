@@ -2,16 +2,18 @@ import { Album } from "./album";
 
 export class Photo {
     constructor(
-        public Id?: number,
-        public PhotoImage?: Blob,
-        public UploadDate?: Date,
-        public AlbumId?: number,
-        public Album?: Album         
+        public id?: number,
+        public photoImage?: File,
+        public uploadDate?: Date,
+        public albumId?: number,
+        public album?: Album         
     ){}
 }
 export class PhotoDTO {
     constructor(
-        public PhotoImage?: Blob,
+        public id?: number,
+        public photoImage?: File,
         public AlbumId?: number,
+        public uploadDate?: Date
     ){}
 }

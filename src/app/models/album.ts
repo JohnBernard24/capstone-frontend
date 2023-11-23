@@ -3,23 +3,23 @@ import { Photo } from "./photo";
 
 export class Album {
     constructor(
-        public Id?: number,
-        public AlbumName?: string,
-        public UserId?: number,
-        public User?: User
+        public id?: number,
+        public albumName?: string,
+        public userId?: number,
+        public user?: User
     ){}
 }
 
 export class AlbumDTO {
     constructor(
-        public AlbumName?: string,
-        public UserId?: number
+        public albumName?: string,
+        public userId?: number
     ){}
 }
 
 export class AlbumWithFirstPhoto {
     constructor(
-        public Album?: Album,
-        public Photo?: Photo
+        public album?: Album,
+        public photo?: Photo
     ){}
 }
