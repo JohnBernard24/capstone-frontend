@@ -56,11 +56,11 @@
             sequi fuga quia quaerat cum, obcaecati hic, molestias minima iste voluptates.
         </p>
     </div>
-    <div class="card-footer">
+    <!-- <div class="card-footer">
       <div class="likes">{{ post.likes }} Likes</div>
         <a class="card-link click-btn" (click)="toggleLike(post)"><i class="fa fa-gittip click-btn"></i> Like</a>
         <a class="card-link click-btn" (click)="showComments(post)"><i class="fa fa-comment click-btn"></i> Comment</a>
-        <!-- <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a> -->
+        
     </div>
     
     <div class="comments" *ngIf="post.showComments">
@@ -69,7 +69,30 @@
       <ul>
         <li *ngFor="let comment of post.comments">{{ comment }}</li>
       </ul>
-    </div>
+    </div> -->
+
+                    <hr class="mb-1 opacity-1" />
+                    <div class="row text-center fw-bold">
+                        <div class="col">
+                            <a class="text-body text-opacity-50 text-decoration-none d-block p-2"> <i class="far fa-thumbs-up me-1 d-block d-sm-inline"></i> Likes </a>
+                        </div>
+                        <div class="col">
+                            <a class="text-body text-opacity-50 text-decoration-none d-block p-2"> <i class="far fa-comment me-1 d-block d-sm-inline"></i> Comment </a>
+                        </div>
+                    </div>
+                    <hr class="mb-3 mt-1 opacity-1" />
+
+                    <div class="d-flex align-items-center m-3">
+                      <img src="/assets/images/bg.jpg" alt="" width="40" height="40" class="rounded-circle" />
+                      <div class="flex-fill ps-2">
+                          <div class="position-relative d-flex align-items-center">
+                              <input type="text" class="form-control rounded-pill bg-white bg-opacity-15" style="padding-right: 120px;" placeholder="Write a comment..." />
+                              <div class="position-absolute end-0 text-center">
+                                  
+                              </div>
+                          </div>
+                      </div>
+                  </div>
 </div>
 </div>
 <!-- End -->
@@ -110,11 +133,11 @@
           sequi fuga quia quaerat cum, obcaecati hic, molestias minima iste voluptates.
       </p>
   </div>
-  <div class="card-footer">
+  <!-- <div class="card-footer">
     <div class="likes">{{ post.likes }} Likes</div>
       <a class="card-link click-btn" (click)="toggleLike(post)"><i class="fa fa-gittip click-btn"></i> Like</a>
       <a class="card-link click-btn" (click)="showComments(post)"><i class="fa fa-comment click-btn"></i> Comment</a>
-      <!-- <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a> -->
+     
   </div>
   
   <div class="comments" *ngIf="post.showComments">
@@ -123,7 +146,30 @@
     <ul>
       <li *ngFor="let comment of post.comments">{{ comment }}</li>
     </ul>
-  </div>
+  </div> -->
+
+                <hr class="mb-1 opacity-1" />
+                    <div class="row text-center fw-bold">
+                        <div class="col">
+                            <a class="text-body text-opacity-50 text-decoration-none d-block p-2"> <i class="far fa-thumbs-up me-1 d-block d-sm-inline"></i> Likes </a>
+                        </div>
+                        <div class="col">
+                            <a class="text-body text-opacity-50 text-decoration-none d-block p-2"> <i class="far fa-comment me-1 d-block d-sm-inline"></i> Comment </a>
+                        </div>
+                    </div>
+                    <hr class="mb-3 mt-1 opacity-1" />
+
+                    <div class="d-flex align-items-center m-3">
+                      <img src="/assets/images/bg.jpg" alt="" width="40" height="40" class="rounded-circle" />
+                      <div class="flex-fill ps-2">
+                          <div class="position-relative d-flex align-items-center">
+                              <input type="text" class="form-control rounded-pill bg-white bg-opacity-15" style="padding-right: 120px;" placeholder="Write a comment..." />
+                              </div>
+                              
+                          
+                      </div>
+                      
+                  </div>
 </div>
 </div>
 <!-- End -->
