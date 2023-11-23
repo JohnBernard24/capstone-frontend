@@ -21,5 +21,9 @@ export class FriendService {
     return this.http.post(this.baseUrl + `/accept-friend/${requestId}`, { });
   }
 
+  removeFriendRequest(requestId: number): Observable<Object>{
+    return this.http.delete(this.baseUrl + `/reject-friend/${requestId}`);
+  }
+
 
 }
