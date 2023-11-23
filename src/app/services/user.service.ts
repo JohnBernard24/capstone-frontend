@@ -25,16 +25,16 @@ export class UserService {
     return this.http.post(this.baseUrl + 'authentication/login', {email, password})
   }
 
-  sendEmail(userId: number, recipientEmail: string): Observable<Object> {
-    return this.http.post(this.baseUrl + `authentication/verify-email`, {userId, recipientEmail});
+  sendEmail(recipientEmail: string): Observable<Object> {
+    return this.http.post(this.baseUrl + `authentication/verify-email/${recipientEmail}`, {});
   }
 
   getProfile(userId: number): Observable<MiniProfileDTO>{
-    return this.http.get<MiniProfileDTO>(this.baseUrl + `profile/get-profile/${userId}`);
+    return this.http.get<MiniProfileDTO>(this.baseUrl + `profile/get-mini-profile/${userId}`);
   }
 
   getNewsFeedPosts(userId: number): Observable<Post[]>{
-    return this.http.get<Post[]>(this.baseUrl + `timeline/get-newsfeed-posts${userId}`);
+    return this.http.get<Post[]>(this.baseUrl + `timeline/get-newsfeed-posts/${userId}`);
   }
 
 

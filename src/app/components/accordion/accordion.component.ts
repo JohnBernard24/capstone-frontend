@@ -10,10 +10,22 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './accordion.component.html',
   styleUrls: ['./accordion.component.css']
 })
-export class AccordionComponent implements OnInit {
+export class AccordionComponent implements OnInit{
+  public imageURL: string = '/assets/images/bg.jpg';
 
- 
+  onFileChange(event: any): void {
+    const file = event.target.files[0];
 
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onload = (e: any) => {
+        this.imageURL = e.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    }
+  }
   // // Define an array of accordion items
   // accordionItems = [
   //   { id: 'editProfile', title: 'Edit Profile', content: 'Your edit profile content here.' },
@@ -28,6 +40,7 @@ export class AccordionComponent implements OnInit {
   // toggleItem(itemId: string): void {
   //   this.activeItem = this.activeItem === itemId ? '' : itemId;
   // }
+  
 
 
   userId: number = Number(this.sessionService.getUserId());
@@ -46,6 +59,8 @@ export class AccordionComponent implements OnInit {
 
   switchTab(tabId: string) {
     this.activeTab = tabId;
+
+    
   }
 
 

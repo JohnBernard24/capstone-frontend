@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Post } from 'src/app/models/post';
+import { SessionService } from 'src/app/services/session.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-newsfeed',
@@ -6,10 +9,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./newsfeed.component.css']
 })
 export class NewsfeedComponent {
-  posts = [
-    { id: 1, content: 'This is a sample post.', likes: 0, showComments: false, newComment: '', comments: [] }
-    // Add more posts as needed
-  ];
+  private userId: number = Number(this.sessionService.getUserId());
+
+  posts: Post[] = [];
+
+  constructor(
+    private sessionService: SessionService,
+    private userService: UserService
+  ){
+    
+    this.getNewsFeedPosts(this.userId);
+  }
+
+  getNewsFeedPosts(userId: number){
+    this.userService.getNewsFeedPosts(userId).subscribe((response: Post[]) => {
+      this.posts = response;
+    },
+    (error) => {
+      console.error("Error fetching newsfeed posts", error);
+    });
+  }
 
   toggleLike(post: any): void {
     post.likes = post.likes + (post.liked ? -1 : 1);

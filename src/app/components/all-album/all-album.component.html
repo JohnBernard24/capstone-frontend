@@ -1,29 +1,15 @@
 <!-- Photo Album Grid -->
 <div class="photo-grid p-5">
     <!-- Photo 1 -->
-    <div class="photo-item">
-        <i class="plus-icon d-flex align-items-center justify-content-center">+</i>
+    <div class="photo-item" >
+        <i class="plus-icon d-flex align-items-center justify-content-center" (click)="addAlbum()">+</i>
     </div>
 
     <!-- Photo 2 -->
-    <div class="photo-item">
+    <div class="photo-item" *ngFor="let album of albums">
+    <!-- <div class="photo-item" *ngFor="let album of albums; let i = index" > -->
         <img src="/assets/images/bg.jpg" alt="Photo 2">
-        <p class="text-center">Album name</p>
+        <!-- <img src="{{ thumbnail[i].photo ? thumbnail[i].photo : '/assets/images/bg.jpg' }}" alt="Photo 2"> -->
+        <p class="text-center">{{ album.albumName }}</p>
     </div>
-
-    <div class="photo-item">
-        <img src="/assets/images/bg.jpg" alt="Photo 3">
-        <p class="text-center">Album name</p>
-    </div>
-
-    <div class="photo-item">
-        <img src="/assets/images/bg.jpg" alt="Photo 4">
-        <p class="text-center">Album name</p>
-    </div>
-
-    <div class="photo-item">
-        <img src="/assets/images/bg.jpg" alt="Photo 4">
-        <p class="text-center">Album name</p>
-    </div>
-
 </div>

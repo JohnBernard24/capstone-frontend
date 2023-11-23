@@ -219,9 +219,9 @@
                     <div class="e-profile">
                       <div class="row">
                         <div class="col-12 col-sm-auto mb-3">
-                          <div class="mx-auto" style="width: 140px;">
-                            <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
-                              <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;">140x140</span>
+                          <div class="mx-auto">
+                            <div class="d-flex justify-content-center align-items-center">
+                              <img [src]="imageURL" class="img img-fluid rounded-circle mt-2" style="height: 140px; width: 140px;">
                             </div>
                           </div>
                         </div>
@@ -232,7 +232,7 @@
                               
                               <label class="btn btn-outline-primary">
                                 <i class="fa fa-fw fa-camera me-2"></i>Upload new photo
-                                <input type="file" class="account-settings-fileinput">
+                                <input type="file" (change)="onFileChange($event)" class="account-settings-fileinput">
                               </label>
                             </div>
                           </div>

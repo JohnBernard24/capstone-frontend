@@ -12,7 +12,8 @@ import { NgToastService } from 'ng-angular-popup';
 })
 export class RegisterComponent implements OnInit {
   
-  user: UserRegisterDTO = new UserRegisterDTO();
+  user: UserRegisterDTO = new UserRegisterDTO()
+  confirmPassword: string = '';
 
   constructor(
     private userService: UserService,
@@ -22,6 +23,13 @@ export class RegisterComponent implements OnInit {
 
 
   ngOnInit(): void {}
+
+  onSubmit() {
+    this.userService.register(this.user).subscribe({
+        next: this.successfulRegister.bind(this), 
+        error: this.failedRegister.bind(this)
+    });
+}
 
   onRegister() {
     if(this.user.firstName == null || this.user.lastName == null || this.user.email == null || this.user.password == null || this.user.birthDate == null){
@@ -44,5 +52,6 @@ export class RegisterComponent implements OnInit {
   failedRegister(result: Record<string, any>) {
     this.toast.error({detail: "ERROR", summary: result["error"], duration: 5000});
   }
+  
 
 }

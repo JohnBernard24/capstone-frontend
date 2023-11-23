@@ -22,15 +22,9 @@ export class ForgotPassComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(): void{
-    this.userService.sendEmail(Number(this.userId), this.email).subscribe((response: Record<string, any>) => {
-      this.toast.success({detail: "SUCCESS", summary: "Email verification sent!", duration: 5000})
-    });
-
-    this.userService.sendEmail(Number(this.userId), this.email).subscribe({next: this.emailSent.bind(this),
+    this.userService.sendEmail(this.email).subscribe({next: this.emailSent.bind(this),
       error: this.emailNotSent.bind(this)
-    
     })
-
   }
 
   emailSent(){

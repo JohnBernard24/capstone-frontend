@@ -27,6 +27,7 @@ import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.compon
 import { ChangepasswordComponent } from './pages/changepassword/changepassword.component';
 import { AllAlbumComponent } from './components/all-album/all-album.component';
 import { AccordionComponent } from './components/accordion/accordion.component';
+import { PostComponent } from './components/post/post.component';
 
 
 const appRoutes: Routes = [
@@ -66,7 +67,8 @@ const appRoutes: Routes = [
     ForgotPassComponent,
     ChangepasswordComponent,
     AllAlbumComponent,
-    AccordionComponent
+    AccordionComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
