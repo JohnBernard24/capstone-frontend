@@ -4,7 +4,7 @@
         <p class="my-auto"><strong>{{ friend.sender.firstName + " " + friend.sender.lastName }}</strong></p>
     </div>
     <div class="friend-buttons">
-        <button class="btn accept-btn">Accept</button>
+        <button class="btn accept-btn" (click)="acceptRequest(friend.id, friend)">Accept</button>
         <button class="btn ignore-btn">Ignore</button>
     </div>
 </div>

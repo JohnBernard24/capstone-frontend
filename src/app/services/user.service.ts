@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { MiniProfileDTO, User, UserRegisterDTO } from '../models/user';
+import { Post } from '../models/post';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,10 @@ export class UserService {
 
   getProfile(userId: number): Observable<MiniProfileDTO>{
     return this.http.get<MiniProfileDTO>(this.baseUrl + `profile/get-profile/${userId}`);
+  }
+
+  getNewsFeedPosts(userId: number): Observable<Post[]>{
+    return this.http.get<Post[]>(this.baseUrl + `timeline/get-newsfeed-posts${userId}`);
   }
 
   
