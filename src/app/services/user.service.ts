@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EditEmailDTO, EditPasswordDTO, MiniProfileDTO, ProfileDTO, User, UserRegisterDTO } from '../models/user';
 import { Post } from '../models/post';
+import { SessionService } from './session.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,13 @@ export class UserService {
 
   private baseUrl: string = 'https://localhost:7116/api/'
 
+  private header: HttpHeaders = new HttpHeaders({
+    'Authorization': this.sessionService.getToken()
+  })
+
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private sessionService: SessionService
   ) {
   }
 
@@ -49,6 +55,10 @@ export class UserService {
 
   editEmail(editEmailDTO: EditEmailDTO): Observable<EditEmailDTO>{
     return this.http.put(this.baseUrl + "profile/edit-email", editEmailDTO);
+  }
+
+  validateToken(): Observable<boolean>{
+    return this.http.get<boolean>(this.baseUrl + `authentication/validate-token`, {headers: this.header});
   }
   
 }

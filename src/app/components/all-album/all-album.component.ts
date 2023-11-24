@@ -12,6 +12,8 @@ import { NewAlbumModalComponent } from '@components/new-album-modal/new-album-mo
   styleUrls: ['./all-album.component.css']
 })
 export class AllAlbumComponent implements OnInit {
+
+  @Input() photoId: number = 1;
   //test
   file: File | null = null;
   albumId: number = 1;
@@ -27,15 +29,27 @@ export class AllAlbumComponent implements OnInit {
     // For example: AlbumName: '', UserId: 0}
   };
   constructor(
+    public dialog: MatDialog,
     private albumService: AlbumService,
     private sessionService: SessionService,
     //test
     private photoService: PhotoService
   ){}
 
+
+
   ngOnInit(): void {
     this.loadAlbums();  
     this.loadThumbnail(); 
+  }
+
+
+  openModal() {
+    const dialogRef = this.dialog.open(NewAlbumModalComponent);
+
+    dialogRef.afterClosed().subscribe(() => {
+      console.log('The dialog was closed');
+    });
   }
 
   //test
@@ -74,6 +88,22 @@ export class AllAlbumComponent implements OnInit {
   // onSelect(album: Album): void {
   //   this.selectedAlbum = album;
   // }
+  loadPhoto() {
+    this.photoService.getPhoto(this.photoId).subscribe(
+      response => {
+        this.photo = response;
+      },
+      error => {
+        console.error('Error loading photo:', error);
+        // Handle the error as needed
+      }
+    );
+  }
+
+  getPhotoUrl(photoId: number): string {
+    // Assuming your API endpoint for getting a photo is '/get-photo/{photoId}'
+    return `/get-photo/${photoId}`;
+  }
 
   addAlbum(): void {
     const userId = this.userId;
