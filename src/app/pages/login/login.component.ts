@@ -21,7 +21,24 @@ export class LoginComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private toast: NgToastService
-  ){}
+  ){
+    // let token: string = this.sessionService.getToken();
+    // let isUsable: boolean = false;
+
+    // if(token){
+    //   this.userService.validateToken().subscribe((response)=>{
+    //     isUsable = response;
+    //   });
+
+    //   if(!isUsable){
+    //     this.sessionService.clear();
+    //     this.router.navigate(['login']);
+    //   }else{
+    //     this.router.navigate(['home']);
+    //   }
+    // }
+  
+  }
 
   ngOnInit(): void {}
 

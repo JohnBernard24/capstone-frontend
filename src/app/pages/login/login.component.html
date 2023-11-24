@@ -21,10 +21,10 @@
             <form (ngSubmit)="onSubmit()" class="login-form mt-4">
 
               <label for="email">Email Address:</label>
-              <input class="rounded p-2" type="email" placeholder="Enter email" name="email" [(ngModel)]="email" required/>
+              <input class="rounded p-2" type="email" placeholder="Enter email" name="email" [(ngModel)]="email" required autocomplete="email"/>
                 
               <label for="password">Password:</label>
-              <input class="rounded p-2" type="password" placeholder="Enter password" name="password" [(ngModel)]="password" required/>
+              <input class="rounded p-2" type="password" placeholder="Enter password" name="password" [(ngModel)]="password" required autocomplete="current-password" />
               <button class="btn btn-warning mt-3 fw-bold">LOGIN</button>
 
             <p class="message text-center" style="font-size: 14px;"><a routerLink="/register" class="text-decoration-underline">Create an account</a></p>
