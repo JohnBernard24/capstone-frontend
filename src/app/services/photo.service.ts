@@ -14,11 +14,24 @@ export class PhotoService {
     private http: HttpClient
   ) { }
 
-  addPhoto(albumId: number, photoDTO: PhotoDTO): Observable<Object> {
+  addPhoto(albumId: number, photoDTO: PhotoDTO): Observable<any> {
     return this.http.post(`${this.baseUrl}/add-photo/${albumId}`, photoDTO)
+  }
+
+  uploadPhoto(albumId: number, file: File): Observable<any> {
+    const formData: FormData = new FormData();
+    formData.append('file', file, file.name);
+    formData.append('albumId', albumId.toString());
+
+    return this.http.post<any>(`${this.baseUrl}/add-photo`, formData);
   }
 
   deletePhoto(photoId:number): Observable<Object> {
     return this.http.delete(`${this.baseUrl}/delete-photo/${photoId}`)
   }
+
+  getPhoto(photoId: number): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/get-photo/${photoId}`);
+  }
+
 }

@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SessionService } from 'src/app/services/session.service';
 import { UserService } from 'src/app/services/user.service';
 import { ProfileDTO, User } from 'src/app/models/user';
+import { PhotoService } from 'src/app/services/photo.service';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit{
   profileDTO:  ProfileDTO = new ProfileDTO();
@@ -20,7 +21,11 @@ export class ProfileComponent implements OnInit{
     this.getMainProfile(this.userId)
   }
 
-  ngOnInit(): void{}
+  ngOnInit(): void{
+  }
+
+  
+  
 
   getMainProfile(userId: number){
     this.userService.getProfile(userId).subscribe(
@@ -32,6 +37,7 @@ export class ProfileComponent implements OnInit{
       }
     );
   }
+
 
   //===== WAITING FOR MODOL OF EDIT BIO"======
   // submitAboutMe(userId: number){

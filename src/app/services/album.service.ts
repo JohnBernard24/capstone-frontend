@@ -38,8 +38,8 @@ export class AlbumService {
     return this.http.get(`${this.baseUrl}/get-mini-album`)
   }
 
-  getFirstPhoto(userId: number): Observable<AlbumWithFirstPhoto[]> {
-    return this.http.get<AlbumWithFirstPhoto[]>(`${this.baseUrl}/get-first-photo/${userId}`)
+  getFirstPhoto(albumId: number): Observable<AlbumWithFirstPhoto[]> {
+    return this.http.get<AlbumWithFirstPhoto[]>(`${this.baseUrl}/get-first-photo/${albumId}`)
   }
 
   
