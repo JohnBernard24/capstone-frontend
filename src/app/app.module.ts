@@ -31,6 +31,8 @@ import { AllAlbumComponent } from './components/all-album/all-album.component';
 import { AccordionComponent } from './components/accordion/accordion.component';
 import { PostComponent } from './components/post/post.component';
 import { NewAlbumModalComponent } from './components/new-album-modal/new-album-modal.component';
+import { AlbumPhotosViewComponent } from './pages/album-photos-view/album-photos-view.component';
+import { AlbumPhotosComponent } from './components/album-photos/album-photos.component';
 
 
 const appRoutes: Routes = [
@@ -42,7 +44,8 @@ const appRoutes: Routes = [
   {path: 'settings', component:SettingsComponent},
   {path: 'forgot-password', component:ForgotComponent},
   {path: 'change-password', component:ChangepasswordComponent},
-  {path: 'album', component:PhotoalbumComponent}
+  {path: 'album', component:PhotoalbumComponent},
+  {path: 'photos', component:AlbumPhotosViewComponent}
 
 ];
 
@@ -71,7 +74,9 @@ const appRoutes: Routes = [
     AllAlbumComponent,
     AccordionComponent,
     PostComponent,
-    NewAlbumModalComponent
+    NewAlbumModalComponent,
+    AlbumPhotosViewComponent,
+    AlbumPhotosComponent
   ],
   imports: [
     BrowserModule,
