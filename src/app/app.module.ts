@@ -33,6 +33,7 @@ import { PostComponent } from './components/post/post.component';
 import { NewAlbumModalComponent } from './components/new-album-modal/new-album-modal.component';
 import { AlbumPhotosViewComponent } from './pages/album-photos-view/album-photos-view.component';
 import { AlbumPhotosComponent } from './components/album-photos/album-photos.component';
+import { EditAboutmeComponent } from './components/edit-aboutme/edit-aboutme.component';
 
 
 const appRoutes: Routes = [
@@ -76,7 +77,8 @@ const appRoutes: Routes = [
     PostComponent,
     NewAlbumModalComponent,
     AlbumPhotosViewComponent,
-    AlbumPhotosComponent
+    AlbumPhotosComponent,
+    EditAboutmeComponent,
   ],
   imports: [
     BrowserModule,
