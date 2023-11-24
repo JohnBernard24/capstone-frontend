@@ -44,6 +44,7 @@ export class UserService {
   }
 
   editAboutMe(userId: number, profileDTO: ProfileDTO): Observable<ProfileDTO>{
+    console.log(userId);
     return this.http.put(this.baseUrl + `profile/edit-about-me/${userId}`, profileDTO);
   }
 
