@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SessionService } from 'src/app/services/session.service';
 import { UserService } from 'src/app/services/user.service';
 import { ProfileDTO, User } from 'src/app/models/user';
+import { PhotoService } from 'src/app/services/photo.service';
 import { MatDialog } from '@angular/material/dialog';
 import { EditAboutmeComponent } from '@components/edit-aboutme/edit-aboutme.component';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit{
 
@@ -33,7 +34,7 @@ export class ProfileComponent implements OnInit{
   openModal() {
     const dialogRef = this.dialog.open(EditAboutmeComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(() => {
       console.log('The dialog was closed');
     });
   }
@@ -50,6 +51,7 @@ export class ProfileComponent implements OnInit{
       }
     );
   }
+
 
   //===== WAITING FOR MODOL OF EDIT BIO"======
   // submitAboutMe(userId: number){

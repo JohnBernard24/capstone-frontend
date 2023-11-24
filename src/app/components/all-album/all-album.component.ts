@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AlbumService } from 'src/app/services/album.service';
 import { Album, AlbumDTO, AlbumWithFirstPhoto } from 'src/app/models/album';
 import { SessionService } from 'src/app/services/session.service';
+import { PhotoService } from 'src/app/services/photo.service';
 import { MatDialog } from '@angular/material/dialog';
 import { NewAlbumModalComponent } from '@components/new-album-modal/new-album-modal.component';
 
@@ -11,6 +12,11 @@ import { NewAlbumModalComponent } from '@components/new-album-modal/new-album-mo
   styleUrls: ['./all-album.component.css']
 })
 export class AllAlbumComponent implements OnInit {
+  //test
+  file: File | null = null;
+  albumId: number = 1;
+
+  photo: any
 
   private userId: number = Number(this.sessionService.getUserId());
   albums: Album[] =[]
@@ -21,23 +27,36 @@ export class AllAlbumComponent implements OnInit {
     // For example: AlbumName: '', UserId: 0}
   };
   constructor(
-    public dialog: MatDialog,
     private albumService: AlbumService,
-    private sessionService: SessionService
-    
+    private sessionService: SessionService,
+    //test
+    private photoService: PhotoService
   ){}
-
-  openModal() {
-    const dialogRef = this.dialog.open(NewAlbumModalComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-  }
 
   ngOnInit(): void {
     this.loadAlbums();  
-    this.loadThumbnail();  
+    this.loadThumbnail(); 
+  }
+
+  //test
+  onFileChange(event: any) {
+    this.file = event.target.files[0];
+  }
+
+  //test
+  uploadPhoto() {
+    if (this.file) {
+      this.photoService.uploadPhoto(this.albumId, this.file).subscribe(
+        response => {
+          console.log('Photo uploaded successfully. Photo ID:', response.photoId);
+          // Add any further handling or redirection here
+        },
+        error => {
+          console.error('Error uploading photo:', error);
+          // Handle the error as needed
+        }
+      );
+    }
   }
 
   loadAlbums() {
@@ -47,7 +66,7 @@ export class AllAlbumComponent implements OnInit {
   }
 
   loadThumbnail() {
-    this.albumService.getFirstPhoto(this.userId).subscribe((response: AlbumWithFirstPhoto[]) => {
+    this.photoService.getPhoto(1).subscribe((response: AlbumWithFirstPhoto[]) => {
       this.thumbnail = response
     });
   }
@@ -69,7 +88,6 @@ export class AllAlbumComponent implements OnInit {
       }
     );
   }
-
 
 //   updateAlbum(): void {
 //     if (this.selectedAlbum) {
