@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AlbumService } from 'src/app/services/album.service';
 import { Album, AlbumDTO, AlbumWithFirstPhoto } from 'src/app/models/album';
 import { SessionService } from 'src/app/services/session.service';
+import { MatDialog } from '@angular/material/dialog';
+import { NewAlbumModalComponent } from '@components/new-album-modal/new-album-modal.component';
 
 @Component({
   selector: 'app-all-album',
@@ -19,9 +21,19 @@ export class AllAlbumComponent implements OnInit {
     // For example: AlbumName: '', UserId: 0}
   };
   constructor(
+    public dialog: MatDialog,
     private albumService: AlbumService,
     private sessionService: SessionService
+    
   ){}
+
+  openModal() {
+    const dialogRef = this.dialog.open(NewAlbumModalComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 
   ngOnInit(): void {
     this.loadAlbums();  
@@ -57,6 +69,7 @@ export class AllAlbumComponent implements OnInit {
       }
     );
   }
+
 
 //   updateAlbum(): void {
 //     if (this.selectedAlbum) {
