@@ -3,6 +3,8 @@ import { AlbumService } from 'src/app/services/album.service';
 import { Album, AlbumDTO, AlbumWithFirstPhoto } from 'src/app/models/album';
 import { SessionService } from 'src/app/services/session.service';
 import { PhotoService } from 'src/app/services/photo.service';
+import { MatDialog } from '@angular/material/dialog';
+import { NewAlbumModalComponent } from '@components/new-album-modal/new-album-modal.component';
 
 @Component({
   selector: 'app-all-album',
@@ -10,7 +12,6 @@ import { PhotoService } from 'src/app/services/photo.service';
   styleUrls: ['./all-album.component.css']
 })
 export class AllAlbumComponent implements OnInit {
-  @Input() photoId: number = 1
   //test
   file: File | null = null;
   albumId: number = 1;
@@ -35,7 +36,6 @@ export class AllAlbumComponent implements OnInit {
   ngOnInit(): void {
     this.loadAlbums();  
     this.loadThumbnail(); 
-    this.loadPhoto(); 
   }
 
   //test
@@ -58,25 +58,6 @@ export class AllAlbumComponent implements OnInit {
       );
     }
   }
-
-  loadPhoto() {
-    this.photoService.getPhoto(this.photoId).subscribe(
-      response => {
-        this.photo = response;
-      },
-      error => {
-        console.error('Error loading photo:', error);
-        // Handle the error as needed
-      }
-    );
-  }
-
-  getPhotoUrl(photoId: number): string {
-    // Assuming your API endpoint for getting a photo is '/get-photo/{photoId}'
-    return `/get-photo/${photoId}`;
-  }
-
-
 
   loadAlbums() {
     this.albumService.getAllAlbums(this.userId).subscribe((response: Album[]) => {

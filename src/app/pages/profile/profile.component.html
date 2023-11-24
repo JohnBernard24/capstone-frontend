@@ -11,16 +11,45 @@
         </div>
     </div>
 
-    <div class="row pt-2 pe-5 ps-5 justify-content-center gap-2">
-        <div class="col-12 col-md-9 order-1 col-lg-3 order-lg-1 d-block p-3 custom-div d-flex">
+    <div class="container">
+        <div class="row">
+           <div class="col-md-12">
+              <div id="content" class="content content-full-width">
+                 <!-- begin profile -->
+                 <div class="profile">
+                    <div class="profile-header">
+                       <div class="profile-header-content">
+    
+    <ul class="profile-header-tab nav nav-tabs d flex align-items-center justify-content-center">   
+        <li class="nav-item" (click)="changeTab('timeline')"><a class="mx-auto" [class.active]="selectedTab === 'timeline'">TIMELINE</a></li>
+        <li class="nav-item" (click)="changeTab('albums')"><a class="mx-auto" [class.active]="selectedTab === 'albums'">ALBUMS</a></li>
+        <li class="nav-item" (click)="changeTab('friends')"><a class="mx-auto " [class.active]="selectedTab === 'friends'">FRIENDS</a></li>
+     </ul>
+                                </div>
+                             </div>
+                         </div>
+                     </div>
+                </div>
+             </div> 
+        </div>
+    
+
+    <div class="row pt-2 pe-2 ps-2 justify-content-center gap-2">
+        <div class="col-11">
+            <app-timeline *ngIf="selectedTab === 'timeline'"></app-timeline>
+            <app-all-album *ngIf="selectedTab === 'albums'"></app-all-album>
+            <app-friends *ngIf="selectedTab === 'friends'"></app-friends>
+        </div>
+        <!-- <div class="col-12 col-md-9 order-1 col-lg-3 order-lg-1 d-block p-3 custom-div d-flex">
             <h6>About Me</h6>
-            <p class="ms-auto">Edit</p>
+            <p class="ms-auto"><a (click)="openModal()" style="cursor: pointer;">Edit</a></p>
         </div>
         <div>
             <p>{{ profileDTO.aboutMe }}</p>
         </div>
 
-        <div class="col-12 col-md-9 order-3 col-lg-5 order-lg-2 d-flex justify-content-center align-items-center p-3 custom-div flex-column text-center">
+        <div class="col-12 col-lg-5 p-3 order-3 custom-div d-block">
+            
         </div>
   
         <div class="col-12 col-md-9 order-2 col-lg-3 order-lg-3 d-block p-3 custom-div" >
@@ -29,11 +58,10 @@
             <div class="">
                 <app-album></app-album>
               </div>
-        </div>
+        </div> -->
     </div>
 
-        
-
+    
 </body>
 <app-footer></app-footer>
 </html>
