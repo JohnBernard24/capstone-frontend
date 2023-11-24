@@ -2,17 +2,33 @@
     <!-- Check if there are notifications -->
     <ng-container *ngIf="notifications.length > 0; else noNotifications">
         <!-- Loop through notifications -->
-        <li *ngFor="let notification of notifications" [ngClass]="{ 'read-notification': notification.read }" >
+        <li *ngFor="let notification of notifications" [ngClass]="{ 'read-notification': notification.isRead }" >
+            
+            
             <a class="dropdown-item">
-                <div [ngStyle]="{ 'background-color': notification.read ? 'white' : 'lightgray' }">
-                    <strong>{{ notification.sender }}</strong> {{ notification.action }} your {{ notification.type }}.
+                <div (click)="onClick(notification.notificationType)" [ngStyle]="{ 'background-color': notification.isRead ? 'white' : 'lightgray' }" [(ngModel)] = "notificationType">
+                    <ng-container *ngIf="notification.notificationType === 'like'">
+                        <strong>{{ likerFullName }}</strong> liked your post.
+                    </ng-container>
+        
+                    <ng-container *ngIf="notification.notificationType === 'comment'">
+                        <strong>{{ commenterFullName }}</strong> commented on your post.
+                    </ng-container>
+    
+                    <ng-container *ngIf="notification.notificationType === 'add-friend-request'">
+                        <strong>{{ requesterFullName }}</strong> sent you a friend request.
+                    </ng-container>
+
+                    <ng-container *ngIf="notification.notificationType === 'accept-friend-request'">
+                        <strong>{{ receiverFullName }}</strong> accepted your friend request.
+                    </ng-container>
                 <br>
                 <!-- "Mark as Read" option for unread notifications -->
-                <span class="mark-as-read-btn" *ngIf="!notification.read" (click)="markAsRead(notification)">Mark as Read</span>
-                <span class="mark-as-unread-btn" *ngIf="notification.read" (click)="markAsUnread(notification)">Mark as Unread</span>
+                <span class="mark-as-read-btn" *ngIf="!notification.isRead" (click)="markAsRead(notification)">Mark as Read</span>
+                <span class="mark-as-unread-btn" *ngIf="notification.isRead" (click)="markAsUnread(notification)">Mark as Unread</span>
                 <!-- "x" button to delete the notification -->
                 <span class="delete-btn" (click)="deleteNotification(notification)">x</span>
-            </div>
+                </div>
             </a>
             <hr>
         </li>
@@ -21,6 +37,11 @@
             <a class="dropdown-item delete-all-btn" (click)="deleteAllNotifications()">Delete All</a>
         </li>
     </ng-container>
+
+    
+
+
+
     <!-- Display message if no notifications -->
     <ng-template #noNotifications>
         <li><a class="dropdown-item">No notifications to display.</a></li>
