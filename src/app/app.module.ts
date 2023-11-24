@@ -3,7 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { NgToastModule } from 'ng-angular-popup'
+import { NgToastModule } from 'ng-angular-popup';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -28,6 +30,7 @@ import { ChangepasswordComponent } from './pages/changepassword/changepassword.c
 import { AllAlbumComponent } from './components/all-album/all-album.component';
 import { AccordionComponent } from './components/accordion/accordion.component';
 import { PostComponent } from './components/post/post.component';
+import { NewAlbumModalComponent } from './components/new-album-modal/new-album-modal.component';
 
 
 const appRoutes: Routes = [
@@ -40,7 +43,6 @@ const appRoutes: Routes = [
   {path: 'forgot-password', component:ForgotComponent},
   {path: 'change-password', component:ChangepasswordComponent},
   {path: 'album', component:PhotoalbumComponent}
-
 
 ];
 
@@ -68,14 +70,17 @@ const appRoutes: Routes = [
     ChangepasswordComponent,
     AllAlbumComponent,
     AccordionComponent,
-    PostComponent
+    PostComponent,
+    NewAlbumModalComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     NgToastModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    MatButtonModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

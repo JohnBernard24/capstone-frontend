@@ -1,0 +1,33 @@
+<button (click)="close()" class=" btn d-flex ms-auto" style="font-size: 30px; color: red;">X</button>
+<div class="custom-modal">
+        <h2 class="text-center">Add New Album</h2>
+
+<form id="new-album" class="login-form mt-4">
+    <label for="albumName" class="me-3">Album Name:</label>
+    <input class="rounded p-2" type="text" name="albumName" required/>
+</form>
+
+<div style="width: 80px; height: 80px; overflow: hidden; border-radius: 8px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);" >
+    <i class="plus-icon d-flex justify-content-center align-items-center">+</i>
+</div>
+
+<div class="photo-grid mt-3">
+    <div class="photo-item">
+        <img src="/assets/images/bg.jpg" alt="Photo 1">
+    </div>
+
+    <div class="photo-item">
+        <img src="/assets/images/bg.jpg" alt="Photo 1">
+    </div>
+
+    <div class="photo-item">
+        <img src="/assets/images/bg.jpg" alt="Photo 1">
+    </div>
+
+    <div class="photo-item">
+        <img src="/assets/images/bg.jpg" alt="Photo 1">
+    </div>
+</div>
+
+<button class="btn bg-success mt-3 d-flex ms-auto">Add New Album</button>
+</div>
