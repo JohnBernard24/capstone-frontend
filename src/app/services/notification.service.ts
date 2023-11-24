@@ -18,4 +18,8 @@ export class NotificationService {
   getNotificationLists(userId: number): Observable<Notification[]>{
     return this.http.get<Notification[]>(this.baseUrl + `/get-notifications/${userId}`);
   }
+  
+  getNotificationContext(notificationId: number | undefined): Observable<Object>{
+    return this.http.get(this.baseUrl + `/get-notification-context/${notificationId}`);
+  }
 }

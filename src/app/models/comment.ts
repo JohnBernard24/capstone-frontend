@@ -4,20 +4,20 @@ import { User } from "./user";
 
 export class Comment {
     constructor(
-        public Id?: number,
-        public CommentContent?: string,
-        public DateCommented?: Date,
-        public PostId?: number,
+        public id?: number,
+        public commentContent?: string,
+        public dateCommented?: Date,
+        public postId?: number,
         //public Post?: Post,
-        public CommenterId?: number,
-        public User?: User
+        public commenterId?: number,
+        public user?: User
     ){}
 }
 export class CommentDTO {
     constructor(
-        public CommentContent?: string,
-        public DateCommented?: Date,
-        public PostId?: number,
-        public CommenterId?: number,
+        public commentContent?: string,
+        public dateCommented?: Date,
+        public postId?: number,
+        public commenterId?: number,
     ){}
 }
