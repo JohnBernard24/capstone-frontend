@@ -17,11 +17,11 @@ export class FriendService {
     return this.http.get<Friend[]>(this.baseUrl + `/get-all-friend-request/${userId}`);
   }
 
-  acceptFriendRequest(requestId: number): Observable<Object>{
+  acceptFriendRequest(requestId?: number): Observable<Object>{
     return this.http.post(this.baseUrl + `/accept-friend/${requestId}`, { });
   }
 
-  removeFriendRequest(requestId: number): Observable<Object>{
+  removeFriendRequest(requestId?: number): Observable<Object>{
     return this.http.delete(this.baseUrl + `/reject-friend/${requestId}`);
   }
 

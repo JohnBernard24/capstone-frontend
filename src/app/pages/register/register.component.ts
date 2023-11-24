@@ -24,12 +24,6 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onSubmit() {
-    this.userService.register(this.user).subscribe({
-        next: this.successfulRegister.bind(this), 
-        error: this.failedRegister.bind(this)
-    });
-}
 
   onRegister() {
     if(this.user.firstName == null || this.user.lastName == null || this.user.email == null || this.user.password == null || this.user.birthDate == null){
@@ -38,13 +32,15 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
+    console.log(this.user);
+
 
     this.userService.register(this.user).subscribe({next: this.successfulRegister.bind(this),
       error: this.failedRegister.bind(this)
       
     
     })
-    this.router.navigate(['/profile']);
+    
 
   }
 

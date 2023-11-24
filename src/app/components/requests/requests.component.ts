@@ -17,13 +17,13 @@ export class RequestsComponent implements OnInit{
     private friendService: FriendService,
   ){}
 
-  acceptRequest(requestId: number, friend: Friend){
+  acceptRequest(requestId?: number, friend?: Friend){
     this.friendService.acceptFriendRequest(requestId).subscribe((response: Record<string, any>)=>{
       this.deleteFromView(friend);
     });
   }
 
-  removeRequest(requestId: number, friend: Friend){
+  removeRequest(requestId?: number, friend?: Friend){
     this.friendService.removeFriendRequest(requestId).subscribe((response: Record<string, any>) => {
       this.deleteFromView(friend);
     });
