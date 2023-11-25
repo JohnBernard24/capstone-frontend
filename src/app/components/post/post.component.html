@@ -1,3 +1,4 @@
+
 <div class="card mb-3" >
     <div class="card-header">
         <div class="d-flex justify-content-between align-items-center">
@@ -26,16 +27,29 @@
 
     <div class="card-body">
         <h5 class="card-title">{{post.postTitle}}</h5>
+
         <p class="card-text">
-            {{ post.description }}
+            {{ post.description }}            
         </p>
-    </div>
+        <div class="d-flex">
+            <span id="likes-count" class="me-auto text-body text-opacity-50 text-decoration-none" onclick="showLikes()">
+                <button class="p-0 btn btn-link text-decoration-none" type="button" id="likes-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="text-body text-opacity-50" id="likes-count" onclick="showLikes()">0 Likes</span>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="likes-dropdown">
+                    <!-- Populate this div with the list of users who liked the post -->
+                    <div *ngFor="let user of likedUsers" class="dropdown-item">{{ user }}</div>
+                </div>
+            </span>
+            <span class="ms-auto text-body text-opacity-50 text-decoration-none">0 Comments</span>
+        </div>
+    </div>    
 
     <div class="post-method">
         <hr class="mb-1 opacity-1" />
         <div class="row text-center fw-bold">
             <div class="col">
-                <a class="text-body text-opacity-50 text-decoration-none d-block p-2"> <i class="fa fa-thumbs-up me-1 d-block d-sm-inline"></i> Likes </a>
+                <a class="text-body text-opacity-50 text-decoration-none d-block p-2"> <i class="fa fa-thumbs-up me-1 d-block d-sm-inline"></i> Like </a>
             </div>
             <div class="col">
                <a class="text-body text-opacity-50 text-decoration-none d-block p-2"> <i class="fa fa-comment me-1 d-block d-sm-inline"></i> Comment </a>
@@ -53,3 +67,28 @@
         </div>
     </div>
 </div>
+
+<script>
+    function showLikes() {
+        // You can fetch the list of users who liked the post here
+        // For simplicity, let's assume you have a list called likedUsers
+        let likedUsers = ['Ad Min', 'Min Ad', 'Blessie Balagtas', 'Jayvee Tinio'];
+
+        // Display the list in the dropdown menu
+        let likesDropdown = new bootstrap.Dropdown(document.getElementById('likes-dropdown'));
+        
+        // Clear existing items
+        likesDropdown._menu.innerHTML = '';
+        
+        // Populate the dropdown menu with the list of users who liked the post
+        likedUsers.forEach(user => {
+            let item = document.createElement('div');
+            item.className = 'dropdown-item';
+            item.textContent = user;
+            likesDropdown._menu.appendChild(item);
+        });
+        
+        // Show the dropdown
+        likesDropdown.show();
+    }
+</script>
