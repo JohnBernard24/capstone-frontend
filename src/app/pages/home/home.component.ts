@@ -6,6 +6,8 @@ import { FriendService } from 'src/app/services/friend.service';
 import { PhotoService } from 'src/app/services/photo.service';
 import { SessionService } from 'src/app/services/session.service';
 import { UserService } from 'src/app/services/user.service';
+import { MatDialog } from '@angular/material/dialog';
+import { RequestsModalComponent } from 'src/app/modals/requests-modal/requests-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -24,6 +26,7 @@ export class HomeComponent implements OnInit{
   ngOnInit(): void {}
   
   constructor(
+    public dialog: MatDialog,
     private userService: UserService,
     private sessionService: SessionService,
     private friendService: FriendService,
@@ -73,6 +76,14 @@ export class HomeComponent implements OnInit{
         }
       );
     }
+  }
+
+  openModal() {
+    const dialogRef = this.dialog.open(RequestsModalComponent);
+
+    dialogRef.afterClosed().subscribe(() => {
+      console.log('The dialog was closed');
+    });
   }
   
   

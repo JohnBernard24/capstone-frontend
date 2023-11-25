@@ -4,7 +4,7 @@ import { Album, AlbumDTO, AlbumWithFirstPhoto } from 'src/app/models/album';
 import { SessionService } from 'src/app/services/session.service';
 import { PhotoService } from 'src/app/services/photo.service';
 import { MatDialog } from '@angular/material/dialog';
-import { NewAlbumModalComponent } from '@components/new-album-modal/new-album-modal.component';
+import { NewAlbumModalComponent } from 'src/app/modals/new-album-modal/new-album-modal.component';
 
 @Component({
   selector: 'app-all-album',
