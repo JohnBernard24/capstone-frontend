@@ -36,7 +36,10 @@
 
         <div class="col-3 d-block p-3 custom-div d-none d-lg-flex flex-row">
             <div>
-                <h6>Friend Requests</h6>
+                <div class="d-flex">
+                    <h6>Friend Requests</h6>
+                <p class="ms-auto"><a (click)="openModal()" style="cursor: pointer;">View All</a></p>
+                </div>
                 <app-requests *ngFor="let friend of friends" [friend]="friend" [deleteFromView]="deleteFromView.bind(this)"></app-requests>
             </div>
         </div>
@@ -47,7 +50,7 @@
         <div class="col-3 d-none d-lg-block p-3 custom-div" style="align-self: flex-start;">
             <div class="d-flex">
               <h6>Album</h6>
-              <p class="ms-auto"><a routerLink="/album" class="text-decoration-none">View All</a></p>
+              <p class="ms-auto"><a routerLink="/album" class="text-decoration-none text-dark">View All</a></p>
             </div>
             <div class="">
                 <app-album></app-album>

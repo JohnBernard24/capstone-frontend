@@ -1,0 +1,15 @@
+<div class="custom-modal">
+    <h2>Friend Requests<span class="close-icon" (click)="close()">&times;</span></h2>  
+    <div class="friend-request pb-3 pt-2" >
+        <img class="friend-photo img-fluid" src="/assets/images/bg.jpg" alt="Friend Photo">
+        <div class="friend-info m-3">
+            <p class="my-auto"><strong>{{ friend.sender?.firstName + " " + friend.sender?.lastName }}</strong></p>
+        </div>
+        <div class="friend-buttons">
+            <button class="btn accept-btn" (click)="acceptRequest(friend.id, friend)">Accept</button>
+            <button class="btn ignore-btn" (click)="removeRequest(friend.id, friend)">Ignore</button>
+        </div>
+    </div>
+    
+         
+</div>

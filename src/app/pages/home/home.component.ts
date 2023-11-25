@@ -5,6 +5,8 @@ import { MiniProfileDTO, User } from 'src/app/models/user';
 import { FriendService } from 'src/app/services/friend.service';
 import { SessionService } from 'src/app/services/session.service';
 import { UserService } from 'src/app/services/user.service';
+import { MatDialog } from '@angular/material/dialog';
+import { RequestsModalComponent } from 'src/app/modals/requests-modal/requests-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +19,7 @@ export class HomeComponent implements OnInit{
   private userId: number = Number(this.sessionService.getUserId());
   
   constructor(
+    public dialog: MatDialog,
     private userService: UserService,
     private sessionService: SessionService,
     private friendService: FriendService
@@ -67,6 +70,14 @@ export class HomeComponent implements OnInit{
       console.error('No file selected');
       // Handle the case where no file is selected
     }
+  }
+
+  openModal() {
+    const dialogRef = this.dialog.open(RequestsModalComponent);
+
+    dialogRef.afterClosed().subscribe(() => {
+      console.log('The dialog was closed');
+    });
   }
   
   

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ImageModalComponent } from '@components/image-modal/image-modal.component';
+import { ImageModalComponent } from 'src/app/modals/image-modal/image-modal.component';
 
 @Component({
   selector: 'app-album-photos',
