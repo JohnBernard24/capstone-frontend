@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { NgToastModule } from 'ng-angular-popup';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import {MatSelectModule} from '@angular/material/select';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -83,13 +85,15 @@ const appRoutes: Routes = [
     ImageModalComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    NgToastModule,
-    RouterModule.forRoot(appRoutes),
-    MatButtonModule,
-    MatDialogModule
+    BrowserModule, 
+    FormsModule, 
+    HttpClientModule, 
+    NgToastModule, 
+    RouterModule.forRoot(appRoutes), 
+    MatButtonModule, 
+    MatDialogModule, 
+    MatTooltipModule, 
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
