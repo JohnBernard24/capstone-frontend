@@ -1,3 +1,4 @@
+
 <!-- Add the modal HTML structure -->
 <div class="modal fade" id="likesModal" tabindex="-1" aria-labelledby="likesModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -14,7 +15,7 @@
     </div>
 </div>
 
-<div class="card gedf-card my-3">
+<div class="card mb-3" >
     <div class="card-header">
         <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center">
@@ -39,7 +40,9 @@
         </div>
     </div>
 
-    <div class="card-body pb-0">
+    <div class="card-body">
+        <h5 class="card-title">{{post.postTitle}}</h5>
+
         <p class="card-text">
             {{ post.description }}            
         </p>

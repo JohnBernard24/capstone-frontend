@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { EditAboutmeComponent } from '@components/edit-aboutme/edit-aboutme.component';
+import { EditAboutmeComponent } from 'src/app/modals/edit-aboutme/edit-aboutme.component';
 
 @Component({
   selector: 'app-timeline',
