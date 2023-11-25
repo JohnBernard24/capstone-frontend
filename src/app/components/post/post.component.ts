@@ -12,7 +12,7 @@ export class PostComponent implements OnInit{
   @Input() post: Post= new Post();
   userId: number = Number(this.sessionService.getUserId());
 
-  likedUsers = ['Ad Min', 'Min Ad', 'Blessie Balagtas', 'Jayvee Tinio'];
+  likedUsers = ['Ad Min', 'Jayvee Tinio', 'Blessie Balagtas', 'Min Ad'];
   
   // formattedDate: string | undefined = "";
   
