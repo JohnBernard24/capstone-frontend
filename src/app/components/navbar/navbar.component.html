@@ -39,12 +39,17 @@
                 </ul>
                 
                 <!-- Search Bar -->
-                <form class="d-flex mx-auto">
-                    <input class="form-control h-25 my-auto" type="search" placeholder="Search" aria-label="Search" style="width: 400px;">
-                    <button class="btn btn-outline-none" type="submit">
-                        <img class="search-bar" src="/assets/images/magnifying-glass.png">
-                    </button>
-                </form>
+                <div class="d-flex mx-auto position-relative">
+                    <input class="form-control h-25 my-auto" type="search" placeholder="Search" aria-label="Search"
+                      [(ngModel)]="searchText" (keyup.enter)="onEnterPressed()" style="width: 400px;">
+                  
+                    <div class="position-absolute search" *ngIf="searchResults.length > 0">
+                      <ul class="dropdown-content">
+                        <li *ngFor="let result of searchResults" (click)="goToDetailsPage()">{{ result }}</li>
+                      </ul>
+                    </div>
+                  </div> 
+                
                 
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
