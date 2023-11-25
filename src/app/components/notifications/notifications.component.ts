@@ -23,6 +23,10 @@ export class NotificationsComponent implements OnInit {
   friendRequestContext: Friend = new Friend();
   notificationType: string = "";
 
+  likeContexts: Like[] = [];
+  commentContexts: Comment[] = [];
+  friendRequestContexts: Friend[] = [];
+
 
   likerFullName: string = this.likeContext.liker?.firstName + " " + this.likeContext.liker?.lastName;
   commenterFullName: string = this.commentContext.user?.firstName + " " + this.commentContext.user?.lastName;
@@ -67,53 +71,38 @@ export class NotificationsComponent implements OnInit {
 
   
 
-  getNotificationContext(contextId: number | undefined, notificationType?: string){
-    this.notificationService.getNotificationContext(contextId).subscribe((response) =>{
-      if(notificationType === "like"){
-        this.likeContext = response;
-      }
-      else if(notificationType === "comment"){
-        this.commentContext = response;
-      }
-      else if(notificationType === "add-friend-request" || notificationType === "accept-friend-request"){
-        this.friendRequestContext = response;
-      }
-    },
-    (error) => {
+  getNotificationContext(contextId: number | undefined, notificationType?: string) {
+    this.notificationService.getNotificationContext(contextId).subscribe(
+      (response) => {
+        if (notificationType === "like") {
+          this.likeContexts.push(response as Like);
+        } else if (notificationType === "comment") {
+          this.commentContexts.push(response as Comment);
+        } else if (notificationType === "add-friend-request" || notificationType === "accept-friend-request") {
+          this.friendRequestContexts.push(response as Friend);
+        }
+      },
+      (error) => {
         console.error("Error fetching notifications", error);
-    });
-
+      }
+    );
   }
-
-  // When the notification is clicked:
-  // onClick(): void {
-  //   // take notification Id
-  //   // this.router/// 
-
-  //   if(this.notificationType === "like"){
-  //     this.router.navigate['/' + this.likeContext.postId];
-  //   }
-
-
-
-  // }
 
 
   onClick(notificationType?: string) {
     switch (notificationType) {
       case 'like':
-        this.router.navigate(['/post' + this.likeContext.postId]); // Replace 'postId' with the actual ID
+        this.router.navigate(['/post' + this.likeContext.postId]); 
         break;
       case 'comment':
-        this.router.navigate(['/post' + this.commentContext.postId]); // Navigate to the post
+        this.router.navigate(['/post' + this.commentContext.postId]); 
         break;
       case 'add-friend-request':
-        this.router.navigate(['/user' + this.friendRequestContext.senderId]); // Navigate to the user profile
+        this.router.navigate(['/user' + this.friendRequestContext.senderId]); 
         break;
       case 'accept-friend-request':
-        this.router.navigate(['/user' + this.friendRequestContext.receiverId]); // Navigate to the user profile
+        this.router.navigate(['/user' + this.friendRequestContext.receiverId]); 
         break;
-      // Add more cases for other notification types and their corresponding routes
       default:
         return;
     }
@@ -121,14 +110,10 @@ export class NotificationsComponent implements OnInit {
   
 
   markAsRead(notification: Notification) {
-    // Perform actions to mark the notification as read
-    // For example, update the 'read' property
     notification.isRead = true;
   }
 
   markAsUnread(notification: Notification) {
-    // Perform actions to mark the notification as read
-    // For example, update the 'read' property
     notification.isRead = false;
   }
 
