@@ -52,9 +52,9 @@ export class AllAlbumComponent implements OnInit {
     });
   }
 
-  //test
   onFileChange(event: any) {
     this.file = event.target.files[0];
+    this.uploadPhoto();
   }
 
   //test
@@ -99,12 +99,7 @@ export class AllAlbumComponent implements OnInit {
       }
     );
   }
-
-  getPhotoUrl(photoId: number): string {
-    // Assuming your API endpoint for getting a photo is '/get-photo/{photoId}'
-    return `/get-photo/${photoId}`;
-  }
-
+  
   addAlbum(): void {
     const userId = this.userId;
     this.newAlbum.userId = userId;

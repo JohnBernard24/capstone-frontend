@@ -1,161 +1,3 @@
-<!-- <body>
-  <div class="accordion accordion-flush" id="accordionFlushExample">
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="flush-headingOne">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-          Edit Profile
-        </button>
-      </h2>
-      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body">
-          <div class="col">
-            <div class="row">
-              <div class="col mb-3">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="e-profile">
-                      <div class="row">
-                        <div class="col-12 col-sm-auto mb-3">
-                          <div class="mx-auto" style="width: 140px;">
-                            <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
-                              <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;">140x140</span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
-                          <div class="text-center text-sm-left mb-2 mb-sm-0">
-                            <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap mt-3">Timothy Dy</h4>
-                            <div class="mt-2">
-                              <button class="btn btn-primary" type="button">
-                                <i class="fa fa-fw fa-camera"></i>
-                                <span>Change Photo</span>
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="tab-content pt-3">
-                        <div class="tab-pane active">
-                          <form class="form" novalidate="">
-                            <div class="row">
-                              <div class="col">
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="form-group mb-3">
-                                      <label>First Name</label>
-                                      <input class="form-control" type="text" name="name" placeholder="First Name">
-                                    </div>
-                                  </div>
-                                  <div class="col">
-                                    <div class="form-group">
-                                      <label>Last Name</label>
-                                      <input class="form-control" type="text" name="username" placeholder="Last Name">
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="form-group">
-                                      <label>Birthday</label>
-                                      <input type="date" class="form-control" id="birthday" >
-                                    </div>
-                                  </div>
-                                  <div class="col">
-                                    <div class="form-group">
-                                      <label class="mb-2">Gender:</label><br>
-                                      <select id="gender" name="gender" class="mb-3">
-                                        <option selected disabled>Select an Option</option>
-                                        <option value="male">Male</option>
-                                        <option value="female">Female</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="row">
-                                  <div class="col mb-3">
-                                    <div class="form-group">
-                                      <label>About Me</label>
-                                      <textarea class="form-control" rows="5" placeholder="Bio"></textarea>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                          </div>
-                  </form>
-                  </div>
-                </div>
-            </div>
-            <button class="btn btn-success" style="float: right;">Save Changes</button>
-          </div>
-          </div>
-        </div>       
-          </div>       
-       </div>
-    </div>
-    </div>
-  </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="flush-headingTwo">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-          Change Email
-        </button>
-      </h2>
-      <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body">
-          
-          <div class="row">
-            <div class="col">
-              <div class="form-group mb-3">
-                <label>New Email</label>
-                <input class="form-control" type="email" name="email" placeholder="Email">
-              </div>
-            </div>
-          </div>
-          <button class="btn-success btn mt-2 d-flex ms-auto" >Save Changes</button>
-
-        </div>
-      </div>
-    </div>
-
-
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="flush-headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-          Change Password
-        </button>
-      </h2>
-      <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body">
-          <div class="row ">
-            <div class="col">
-              <div class="form-group">
-                <label>Current Password</label>
-                <input class="form-control" type="password" name="password" placeholder="Current Password">
-              </div>
-            </div>
-          </div>
-          <div class="row mt-3">
-            <div class="col">
-              <div class="form-group">
-                <label>New Password</label>
-                <input class="form-control" type="password" name="password" placeholder="New Password">
-              </div>
-            </div>
-            <div class="col">
-              <div class="form-group">
-                <label>Confirm New Password</label>
-                <input class="form-control" type="password" name="password" placeholder="Confirm New Password">
-              </div>
-            </div>
-          </div>
-          <button class="btn-success btn mt-3 d-flex ms-auto" >Save Changes</button>
-        </div>
-      </div>
-    </div>
-</div>
-</body> -->
-
 <body>
   <div class="container light-style flex-grow-1 container-p-y">
 
@@ -167,9 +9,12 @@
       <div class="row no-gutters row-bordered row-border-light">
         <div class="col-md-3 pt-0">
           <div class="list-group list-group-flush account-settings-links">
-            <a class="list-group-item list-group-item-action" [class.active]="activeTab === 'account-general'" (click)="switchTab('account-general')">Edit Profile</a>
-            <a class="list-group-item list-group-item-action" [class.active]="activeTab === 'account-change-password'" (click)="switchTab('account-change-password')">Change password</a>
-            <a class="list-group-item list-group-item-action" [class.active]="activeTab === 'account-info'" (click)="switchTab('account-info')">Change Email</a>
+            <a class="list-group-item list-group-item-action" [class.active]="activeTab === 'account-general'"
+              (click)="switchTab('account-general')">Edit Profile</a>
+            <a class="list-group-item list-group-item-action" [class.active]="activeTab === 'account-change-password'"
+              (click)="switchTab('account-change-password')">Change password</a>
+            <a class="list-group-item list-group-item-action" [class.active]="activeTab === 'account-info'"
+              (click)="switchTab('account-info')">Change Email</a>
           </div>
         </div>
         <div class="col-md-9">
@@ -212,110 +57,114 @@
                   <input type="text" class="form-control" value="Company Ltd.">
                 </div>
               </div> -->
-            <div class="col">
-            <div class="row">
-              <div class="col mb-3">
-                  <div class="card-body">
-                    <div class="e-profile">
-                      <div class="row">
-                        <div class="col-12 col-sm-auto mb-3">
-                          <div class="mx-auto">
-                            <div class="d-flex justify-content-center align-items-center">
-                              <img [src]="imageURL" class="img img-fluid rounded-circle mt-2" style="height: 140px; width: 140px;">
+              <div class="col">
+                <div class="row">
+                  <div class="col mb-3">
+                    <div class="card-body">
+                      <div class="e-profile">
+                        <div class="row">
+                          <div class="col-12 col-sm-auto mb-3">
+                            <div class="mx-auto">
+                              <div class="d-flex justify-content-center align-items-center">
+                                <img [src]="imageURL" class="img img-fluid rounded-circle mt-2"
+                                  style="height: 140px; width: 140px;">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
+                            <div class="text-center text-sm-left mb-2 mb-sm-0">
+                              <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap mt-3">Timothy Dy</h4>
+                              <div class="mt-2">
+
+                                <label class="btn btn-outline-primary">
+                                  <i class="fa fa-fw fa-camera me-2"></i>Upload new photo
+                                  <input type="file" (change)="onFileChange($event)" class="account-settings-fileinput">
+                                </label>
+                              </div>
                             </div>
                           </div>
                         </div>
-                        <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
-                          <div class="text-center text-sm-left mb-2 mb-sm-0">
-                            <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap mt-3">Timothy Dy</h4>
-                            <div class="mt-2">
-                              
-                              <label class="btn btn-outline-primary">
-                                <i class="fa fa-fw fa-camera me-2"></i>Upload new photo
-                                <input type="file" (change)="onFileChange($event)" class="account-settings-fileinput">
-                              </label>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="tab-content pt-3">
-                        <div class="tab-pane active">
-                          <form class="form" novalidate="">
-                            <div class="row">
-                              <div class="col">
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="form-group mb-3">
-                                      <label>First Name</label>
-                                      <input class="form-control" type="text" name="name" placeholder="First Name">
+                        <div class="tab-content pt-3">
+                          <div class="tab-pane active">
+                            <form class="form" novalidate="">
+                              <div class="row">
+                                <div class="col">
+                                  <div class="row">
+                                    <div class="col">
+                                      <div class="form-group mb-3">
+                                        <label>First Name</label>
+                                        <input class="form-control" type="text" name="name" placeholder="First Name">
+                                      </div>
+                                    </div>
+                                    <div class="col">
+                                      <div class="form-group">
+                                        <label>Last Name</label>
+                                        <input class="form-control" type="text" name="username" placeholder="Last Name">
+                                      </div>
                                     </div>
                                   </div>
-                                  <div class="col">
-                                    <div class="form-group">
-                                      <label>Last Name</label>
-                                      <input class="form-control" type="text" name="username" placeholder="Last Name">
+                                  <div class="row">
+                                    <div class="col">
+                                      <div class="form-group">
+                                        <label>Birthday</label>
+                                        <input type="date" class="form-control" id="birthday">
+                                      </div>
+                                    </div>
+                                    <div class="col">
+                                      <div class="form-group">
+                                        <label class="mb-2">Gender:</label><br>
+                                        <select id="gender" name="gender" class="mb-3">
+                                          <option selected disabled>Select an Option</option>
+                                          <option value="male">Male</option>
+                                          <option value="female">Female</option>
+                                          <option value="other">Other</option>
+                                        </select>
+                                      </div>
                                     </div>
                                   </div>
-                                </div>
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="form-group">
-                                      <label>Birthday</label>
-                                      <input type="date" class="form-control" id="birthday" >
-                                    </div>
-                                  </div>
-                                  <div class="col">
-                                    <div class="form-group">
-                                      <label class="mb-2">Gender:</label><br>
-                                      <select id="gender" name="gender" class="mb-3">
-                                        <option selected disabled>Select an Option</option>
-                                        <option value="male">Male</option>
-                                        <option value="female">Female</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="row">
-                                  <div class="col mb-3">
-                                    <div class="form-group">
-                                      <label>About Me</label>
-                                      <textarea class="form-control" rows="5" placeholder="Bio"></textarea>
+                                  <div class="row">
+                                    <div class="col mb-3">
+                                      <div class="form-group">
+                                        <label>About Me</label>
+                                        <textarea class="form-control" rows="5" placeholder="Bio"></textarea>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
+                            </form>
                           </div>
-                  </form>
+                        </div>
+                      </div>
+                      <button type="button" class="btn btn-default me-3 " style="float: right;">Cancel</button>
+                      <button class="btn btn-success me-3 " style="float: right;">Save Changes</button>
+
+                    </div>
                   </div>
                 </div>
-            </div>
-            <button type="button" class="btn btn-default me-3 " style="float: right;">Cancel</button>
-            <button class="btn btn-success me-3 " style="float: right;">Save Changes</button>
-            
-          </div>
-        </div>       
-          </div>       
-       </div>
-    
+              </div>
 
             </div>
-            <div class="tab-pane fade active show mb-5" id="account-change-password" *ngIf="activeTab === 'account-change-password'">
+            <div class="tab-pane fade active show mb-5" id="account-change-password"
+              *ngIf="activeTab === 'account-change-password'">
               <div class="card-body pb-2">
 
                 <div class="form-group">
                   <label class="form-label">Current password: </label>
-                  <input type="password" class="form-control passInput" name="password" placeholder="Current Password" [(ngModel)]="editPasswordDTO.currentPassword">
+                  <input type="password" class="form-control passInput" name="password" placeholder="Current Password"
+                    [(ngModel)]="editPasswordDTO.currentPassword">
                 </div>
 
                 <div class="form-group">
                   <label class="form-label">New password: </label>
-                  <input type="password" class="form-control passInput" name="password" placeholder="New Password" [(ngModel)]="editPasswordDTO.newPassword">
+                  <input type="password" class="form-control passInput" name="password" placeholder="New Password"
+                    [(ngModel)]="editPasswordDTO.newPassword">
                 </div>
 
                 <div class="form-group mb-3">
                   <label class="form-label">Confirm new password: </label>
-                  <input type="password" class="passInput form-control" name="password" placeholder="Re-enter New Password" [(ngModel)]="repeatNewPassword">
+                  <input type="password" class="passInput form-control" name="password"
+                    placeholder="Re-enter New Password" [(ngModel)]="repeatNewPassword">
                 </div>
 
                 <!-- <div class="form-group">
@@ -340,8 +189,8 @@
 
 
                 <button type="button" class="btn btn-default me-3 " style="float: right;">Cancel</button>
-                <button (click)="onSubmitEditPassword()" class="btn btn-success me-3 " style="float: right;">Save Changes</button>
-
+                <button (click)="onSubmitEditPassword()" class="btn btn-success me-3 " style="float: right;">Save
+                  Changes</button>
               </div>
             </div>
 
@@ -350,18 +199,18 @@
                 <div class="col">
                   <div class="form-group mb-3">
                     <label>Type New Email Address</label>
-                    <input class="form-control" type="email" name="email" placeholder="Email" [(ngModel)]="editEmailDTO.newEmail">
+                    <input class="form-control" type="email" name="email" placeholder="Email"
+                      [(ngModel)]="editEmailDTO.newEmail">
                   </div>
                 </div>
               </div>
               <button type="button" class="btn btn-default me-3 " style="float: right;">Cancel</button>
-              <button (click)="onSubmitEditEmail()" class="btn btn-success me-3 " style="float: right;">Save Changes</button>
+              <button (click)="onSubmitEditEmail()" class="btn btn-success me-3 " style="float: right;">Save
+                Changes</button>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-
   </div>
 </body>

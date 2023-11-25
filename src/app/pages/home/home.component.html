@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+
 <body>
     <app-navbar></app-navbar>
 
@@ -26,18 +21,23 @@
             <div class="custom-div">
                 <!-- Content changes dynamically based on the button clicked -->
                 <textarea placeholder="Type your post here"></textarea>
-                <!-- image-upload.component.html -->
-                <input type="file" (change)="onFileSelected($event)" />
-            </div>
-            <div class="custom-div text-end">
-                <button id="postButton" class="btn mt-2" >Post</button>
+                
+                <div class="row">
+                    <label for="fileInput" class="btn btn-success">
+                      Upload Photo
+                      <input type="file" (change)="onFileChange($event)" id="fileInput" style="display: none;" />
+                    </label>
+                    <button id="postButton" class="btn mt-2">Post</button>
+                </div>
+
+
             </div>
         </div>        
 
         <div class="col-3 d-block p-3 custom-div d-none d-lg-flex flex-row">
             <div>
                 <h6>Friend Requests</h6>
-                <app-requests *ngFor="let friend of friends" [friend]="friend" [deleteFromView]="deleteFromView.bind(this)"></app-requests>
+                <app-requests *ngFor="let friend of friends" [friend]="friend" [deleteFriendFromView]="deleteFriendFromView.bind(this)"></app-requests>
             </div>
         </div>
     </div>
@@ -65,4 +65,3 @@
     <app-footer></app-footer>
 
 </body>
-</html>

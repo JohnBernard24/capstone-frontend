@@ -3,6 +3,7 @@ import { Friend } from 'src/app/models/friend';
 import { Post } from 'src/app/models/post';
 import { MiniProfileDTO, User } from 'src/app/models/user';
 import { FriendService } from 'src/app/services/friend.service';
+import { PhotoService } from 'src/app/services/photo.service';
 import { SessionService } from 'src/app/services/session.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -14,18 +15,25 @@ import { UserService } from 'src/app/services/user.service';
 export class HomeComponent implements OnInit{
   miniProfileDTO: MiniProfileDTO = new MiniProfileDTO();
   friends: Friend[] = [];
-  private userId: number = Number(this.sessionService.getUserId());
+
+  private userId: number = 0;
+  post: Post = new Post();
+  file: File | null = null;
+  albumId: number = 1;
+  
+  ngOnInit(): void {}
   
   constructor(
     private userService: UserService,
     private sessionService: SessionService,
-    private friendService: FriendService
+    private friendService: FriendService,
+    private photoService: PhotoService
   ){
+    this.userId = Number(this.sessionService.getUserId());
     this.getProfile(this.userId);
     this.getFriendRequests(this.userId);
   }
-  ngOnInit(): void {}
-  
+
   getProfile(userId: number) {
     this.userService.getProfile(userId).subscribe(
       (response: MiniProfileDTO) => {
@@ -43,29 +51,27 @@ export class HomeComponent implements OnInit{
     });
   }
 
-  deleteFromView(givenFriend: Friend): void{
+  deleteFriendFromView(givenFriend: Friend): void{
     this.friends = this.friends.filter(friendEntry => friendEntry != givenFriend);
   }
 
-  onFileSelected(event: any): void {
-    const selectedFile = event.target.files && event.target.files[0];
-  
-    if (selectedFile) {
-      // Ensure that miniProfileDTO, photo, and photoImage are defined before passing to uploadImage
-      if (
-        this.miniProfileDTO &&
-        this.miniProfileDTO.photo &&
-        this.miniProfileDTO.photo.photoImage
-      ) {
-        this.miniProfileDTO.photo.photoImage = selectedFile;
-        // this.uploadImage(this.miniProfileDTO.photo.photoImage);
-      } else {
-        console.error('miniProfileDTO, photo, or photoImage is undefined');
-        // Handle the case where miniProfileDTO, photo, or photoImage is undefined
-      }
-    } else {
-      console.error('No file selected');
-      // Handle the case where no file is selected
+  onFileChange(event: any) {
+    this.file = event.target.files[0];
+    this.uploadPhoto();
+  }
+
+  uploadPhoto() {
+    if (this.file) {
+      this.photoService.uploadPhoto(this.albumId, this.file).subscribe(
+        response => {
+          console.log('Photo uploaded successfully. Photo ID:', response.photoId);
+          // Add any further handling or redirection here
+        },
+        error => {
+          console.error('Error uploading photo:', error);
+          // Handle the error as needed
+        }
+      );
     }
   }
   
@@ -73,20 +79,6 @@ export class HomeComponent implements OnInit{
   
 
 
-  // uploadImage(file: File): void {
-  //   const formData: FormData = new FormData();
-  //   formData.append('file', file, file.name);
-  
-  //   this.http.post('your-api-endpoint', formData).subscribe(
-  //     (response) => {
-  //       // Handle the response from the backend
-  //     },
-  //     (error) => {
-  //       // Handle errors
-  //     }
-  //   );
-  // }
-
-  // addPost()
+ 
 
 }

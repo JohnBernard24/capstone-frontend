@@ -8,7 +8,11 @@
 </form>
 
 <div style="width: 80px; height: 80px; overflow: hidden; border-radius: 8px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);" >
-    <i class="plus-icon d-flex justify-content-center align-items-center">+</i>
+    <i class="plus-icon d-flex justify-content-center align-items-center" (click)="fileInput.click()">
+        +
+    </i>
+    <input type="file" (change)="onFileChange($event)" #fileInput style="display: none;" />
+    
 </div>
 
 <div class="photo-grid mt-3">

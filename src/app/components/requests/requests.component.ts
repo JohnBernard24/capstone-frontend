@@ -10,7 +10,7 @@ import { FriendService } from 'src/app/services/friend.service';
 export class RequestsComponent implements OnInit{
   
   @Input() friend!: Friend;
-  @Input() deleteFromView!: Function;
+  @Input() deleteFriendFromView!: Function;
   ngOnInit(): void {}
 
   constructor(
@@ -19,13 +19,13 @@ export class RequestsComponent implements OnInit{
 
   acceptRequest(requestId?: number, friend?: Friend){
     this.friendService.acceptFriendRequest(requestId).subscribe((response: Record<string, any>)=>{
-      this.deleteFromView(friend);
+      this.deleteFriendFromView(friend);
     });
   }
 
   removeRequest(requestId?: number, friend?: Friend){
     this.friendService.removeFriendRequest(requestId).subscribe((response: Record<string, any>) => {
-      this.deleteFromView(friend);
+      this.deleteFriendFromView(friend);
     });
   }
   

@@ -23,6 +23,7 @@ export class PhotoService {
     formData.append('file', file, file.name);
     formData.append('albumId', albumId.toString());
 
+
     return this.http.post<any>(`${this.baseUrl}/add-photo`, formData);
   }
 
