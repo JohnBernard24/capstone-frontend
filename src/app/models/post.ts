@@ -1,3 +1,4 @@
+import { Photo } from "./photo";
 import { User } from "./user";
 
 export class Post {
@@ -10,7 +11,7 @@ export class Post {
         public timelineId?: number,
         public timeline?: object,
         public photoId?: number,
-        // public photo?: Photo,
+        public photo?: Photo,
         public posterId?: number,
         public poster?: User
 
@@ -21,7 +22,7 @@ export class PostDTO{
     constructor(
         public postTitle?: string,
         public description?: string,
-        // public photo?: Photo,
+        public photoId?: number,
         public posterId?: number
     ){}
 }

@@ -1,12 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Friend } from 'src/app/models/friend';
-import { Post } from 'src/app/models/post';
+import { Post, PostDTO } from 'src/app/models/post';
 import { MiniProfileDTO, User } from 'src/app/models/user';
 import { FriendService } from 'src/app/services/friend.service';
+import { PhotoService } from 'src/app/services/photo.service';
 import { SessionService } from 'src/app/services/session.service';
 import { UserService } from 'src/app/services/user.service';
 import { MatDialog } from '@angular/material/dialog';
 import { RequestsModalComponent } from 'src/app/modals/requests-modal/requests-modal.component';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-home',
@@ -16,19 +18,27 @@ import { RequestsModalComponent } from 'src/app/modals/requests-modal/requests-m
 export class HomeComponent implements OnInit{
   miniProfileDTO: MiniProfileDTO = new MiniProfileDTO();
   friends: Friend[] = [];
-  private userId: number = Number(this.sessionService.getUserId());
+
+  private userId: number = 0;
+  post: PostDTO = new PostDTO();
+  file: File | null = null;
+  albumId: number = 1;
+  
+  ngOnInit(): void {}
   
   constructor(
     public dialog: MatDialog,
     private userService: UserService,
     private sessionService: SessionService,
-    private friendService: FriendService
+    private friendService: FriendService,
+    private photoService: PhotoService,
+    private postService: PostService
   ){
+    this.userId = Number(this.sessionService.getUserId());
     this.getProfile(this.userId);
     this.getFriendRequests(this.userId);
   }
-  ngOnInit(): void {}
-  
+
   getProfile(userId: number) {
     this.userService.getProfile(userId).subscribe(
       (response: MiniProfileDTO) => {
@@ -46,30 +56,25 @@ export class HomeComponent implements OnInit{
     });
   }
 
-  deleteFromView(givenFriend: Friend): void{
+  deleteFriendFromView(givenFriend: Friend): void{
     this.friends = this.friends.filter(friendEntry => friendEntry != givenFriend);
   }
 
-  onFileSelected(event: any): void {
-    const selectedFile = event.target.files && event.target.files[0];
-  
-    if (selectedFile) {
-      // Ensure that miniProfileDTO, photo, and photoImage are defined before passing to uploadImage
-      if (
-        this.miniProfileDTO &&
-        this.miniProfileDTO.photo &&
-        this.miniProfileDTO.photo.photoImage
-      ) {
-        this.miniProfileDTO.photo.photoImage = selectedFile;
-        // this.uploadImage(this.miniProfileDTO.photo.photoImage);
-      } else {
-        console.error('miniProfileDTO, photo, or photoImage is undefined');
-        // Handle the case where miniProfileDTO, photo, or photoImage is undefined
+  onFileChange(event: any) {
+    this.file = event.target.files[0];
+  }
+
+  async uploadPhoto(): Promise<number> {
+    if (this.file) {
+      try {
+        const response = await this.photoService.uploadPhoto(this.albumId, this.file).toPromise();
+        return response.photoId;
+      } catch (error) {
+        console.error(error);
+        return 0;
       }
-    } else {
-      console.error('No file selected');
-      // Handle the case where no file is selected
     }
+    return 0; // Return 0 if this.file is not defined
   }
 
   openModal() {
@@ -80,24 +85,24 @@ export class HomeComponent implements OnInit{
     });
   }
   
-  
+  async addPost(){
+    let photoId = await this.uploadPhoto();
+    this.post.photoId = photoId;
+    console.log(photoId);
+    this.post.postTitle = "strings";
+    this.post.posterId = this.userId;
+
+    console.log(this.post);
+    this.postService.addPost(this.userId, this.post).subscribe((response) => {
+      console.log(response);
+    });
+
+
+  }
+
   
 
 
-  // uploadImage(file: File): void {
-  //   const formData: FormData = new FormData();
-  //   formData.append('file', file, file.name);
-  
-  //   this.http.post('your-api-endpoint', formData).subscribe(
-  //     (response) => {
-  //       // Handle the response from the backend
-  //     },
-  //     (error) => {
-  //       // Handle errors
-  //     }
-  //   );
-  // }
-
-  // addPost()
+ 
 
 }

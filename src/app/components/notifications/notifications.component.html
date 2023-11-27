@@ -7,7 +7,7 @@
     <div
       (click)="onClick(notification.notificationType)"
       [ngStyle]="{ 'background-color': notification.isRead ? 'white' : 'lightgray' }"
-      [(ngModel)]="notificationType"
+      
     >
       <ng-container *ngIf="notification.notificationType === 'like'">
         <strong>{{ likeContexts[likeContexts.length - 1]?.liker?.firstName }} {{ likeContexts[likeContexts.length - 1]?.liker?.lastName }}</strong> liked your post.
