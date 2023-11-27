@@ -39,6 +39,10 @@ export class UserService {
     return this.http.get<MiniProfileDTO>(this.baseUrl + `profile/get-mini-profile/${userId}`);
   }
 
+  getMainProfile(userId: number): Observable<ProfileDTO>{
+    return this.http.get<ProfileDTO>(this.baseUrl + `profile/get-profile/${userId}`);
+  }
+
   getNewsFeedPosts(userId: number): Observable<Post[]>{
     return this.http.get<Post[]>(this.baseUrl + `timeline/get-newsfeed-posts/${userId}`);
   }

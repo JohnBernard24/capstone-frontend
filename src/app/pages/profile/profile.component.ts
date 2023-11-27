@@ -27,9 +27,7 @@ export class ProfileComponent implements OnInit{
     public dialog: MatDialog,
     private userService: UserService,
     private sessionService: SessionService
-  ){
-    this.getMainProfile(this.userId)
-  }
+  ){}
 
   openModal() {
     const dialogRef = this.dialog.open(EditAboutmeComponent);
@@ -39,10 +37,12 @@ export class ProfileComponent implements OnInit{
     });
   }
 
-  ngOnInit(): void{}
+  ngOnInit(): void{
+    this.getMainProfile(this.userId)
+  }
 
   getMainProfile(userId: number){
-    this.userService.getProfile(userId).subscribe(
+    this.userService.getMainProfile(userId).subscribe(
       (response: ProfileDTO) => {
         this.profileDTO = response;
       },
@@ -51,20 +51,5 @@ export class ProfileComponent implements OnInit{
       }
     );
   }
-
-
-  //===== WAITING FOR MODOL OF EDIT BIO"======
-  // submitAboutMe(userId: number){
-   // this.userService.editAboutMe(userId).subscribe({next: this.successfulRegister.bind(this),
-   //   error: this.failedRegister.bind(this)
-  //   this.userService.editAboutMe(userId).subscribe(
-  //     (response: ProfileDTO) => {
-  //       this.profileDTO = response;
-  //     },
-  //     (error) => {
-  //       console.error("Error", error)
-  //     }
-  //   );
-  // }
 
 }
