@@ -38,6 +38,7 @@ import { AlbumPhotosComponent } from './components/album-photos/album-photos.com
 import { EditAboutmeComponent } from './modals/edit-aboutme/edit-aboutme.component';
 import { ImageModalComponent } from './modals/image-modal/image-modal.component';
 import { RequestsModalComponent } from './modals/requests-modal/requests-modal.component';
+import { SearchUserListComponent } from './pages/search-user-list/search-user-list.component';
 
 
 const appRoutes: Routes = [
@@ -50,7 +51,8 @@ const appRoutes: Routes = [
   {path: 'forgot-password', component:ForgotComponent},
   {path: 'change-password', component:ChangepasswordComponent},
   {path: 'album', component:PhotoalbumComponent},
-  {path: 'photos', component:AlbumPhotosViewComponent}
+  {path: 'photos', component:AlbumPhotosViewComponent},
+  {path: 'search-user-list', component:SearchUserListComponent}
 
 ];
 
@@ -84,7 +86,8 @@ const appRoutes: Routes = [
     AlbumPhotosComponent,
     EditAboutmeComponent,
     ImageModalComponent,
-    RequestsModalComponent
+    RequestsModalComponent,
+    SearchUserListComponent
   ],
   imports: [
     BrowserModule, 
