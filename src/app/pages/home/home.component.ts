@@ -9,12 +9,17 @@ import { UserService } from 'src/app/services/user.service';
 import { MatDialog } from '@angular/material/dialog';
 import { RequestsModalComponent } from 'src/app/modals/requests-modal/requests-modal.component';
 import { PostService } from 'src/app/services/post.service';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+import Swal from 'sweetalert2';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements OnInit{
   miniProfileDTO: MiniProfileDTO = new MiniProfileDTO();
   friends: Friend[] = [];
@@ -32,7 +37,9 @@ export class HomeComponent implements OnInit{
     private sessionService: SessionService,
     private friendService: FriendService,
     private photoService: PhotoService,
-    private postService: PostService
+    private postService: PostService,
+    private router: Router, 
+    private toast: NgToastService
   ){
     this.userId = Number(this.sessionService.getUserId());
     this.getProfile(this.userId);
@@ -40,7 +47,7 @@ export class HomeComponent implements OnInit{
   }
 
   getProfile(userId: number) {
-    this.userService.getProfile(userId).subscribe(
+    this.userService.getMiniProfile(userId).subscribe(
       (response: MiniProfileDTO) => {
         this.miniProfileDTO = response;
       },
@@ -87,15 +94,29 @@ export class HomeComponent implements OnInit{
   
   async addPost(){
     let photoId = await this.uploadPhoto();
-    this.post.photoId = photoId;
-    console.log(photoId);
-    this.post.postTitle = "strings";
+    if(photoId){
+      this.post.photoId = photoId;
+    }
     this.post.posterId = this.userId;
 
     console.log(this.post);
-    this.postService.addPost(this.userId, this.post).subscribe((response) => {
-      console.log(response);
+    this.postService.addPost(this.userId, this.post).subscribe({
+      next: () => {
+        Swal.fire({
+          title: "Post Added!",
+          text: "New pastebook post success!",
+          icon: "success"
+        });
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.router.navigate(['home']);
+        });
+      },
+      error: () =>{
+        this.toast.error({detail: "ERROR", summary: "Error adding a new post!", duration: 5000});
+      }
     });
+
+    
 
 
   }

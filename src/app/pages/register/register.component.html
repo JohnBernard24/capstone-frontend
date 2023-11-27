@@ -79,14 +79,14 @@
                                             <input class="input--style-4" type="text" id="mobileNumber"
                                                 name="mobileNumber" pattern="[0-9]{10}" required
                                                 title="Please enter a 10-digit phone number" placeholder="Mobile Number"
-                                                [(ngModel)]="user.phoneNumber" />
+                                                [(ngModel)]="user.phoneNumber" autocomplete="mobile" />
                                         </div>
                                     </div>
                                     <div class="col-2">
                                         <div class="input-group">
                                             <span><i aria-hidden="true" class="fa fa-lock"></i></span>
                                             <input class="input--style-4" type="password" id="password" name="password"
-                                                placeholder="Password" [(ngModel)]="user.password" required />
+                                                placeholder="Password" [(ngModel)]="user.password" required autocomplete="new-password"/>
                                         </div>
                                     </div>
                                     <div class="col-2">
@@ -95,7 +95,7 @@
 
                                             <input class="input--style-4" type="password" id="confirmPassword"
                                                 name="confirmPassword" [(ngModel)]="confirmPassword"
-                                                placeholder="Confirm Password" required />
+                                                placeholder="Confirm Password" required autocomplete="null" />
                                         </div>
                                     </div>
                                 </div>

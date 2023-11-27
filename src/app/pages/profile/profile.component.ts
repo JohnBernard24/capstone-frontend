@@ -38,11 +38,11 @@ export class ProfileComponent implements OnInit{
   }
 
   ngOnInit(): void{
-    this.getMainProfile(this.userId)
+    this.getMainProfile()
   }
 
-  getMainProfile(userId: number){
-    this.userService.getMainProfile(userId).subscribe(
+  getMainProfile(){
+    this.userService.getMainProfile().subscribe(
       (response: ProfileDTO) => {
         this.profileDTO = response;
       },
