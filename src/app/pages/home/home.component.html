@@ -12,25 +12,22 @@
             <h5 class="text-primary pt-3" style="font-weight: bold;"><a routerLink="/profile" style="text-decoration: none;">View My Profile</a></h5>
         </div>
 
-        <div class="col-12 col-lg-5 p-3 custom-div d-block">
+        <div class="col-12 col-lg-5 custom-div d-block">
             <div class="mb-3">
                 <div class="col-6 col-lg-6 text-center mx-auto">
-                    <h6 style="color: #3373B0;" class="mt-4">What's on your mind?</h6>
+                    <h4 style="color: #3373B0;" class="mt-4">What's on your mind?</h4>
                 </div>
             </div>
             <div class="custom-div">
-                <!-- Content changes dynamically based on the button clicked -->
-                <textarea placeholder="Type your post here"></textarea>
+                <textarea placeholder="Type your post here" [(ngModel)] = "post.description"></textarea>
                 
-                <div class="row">
-                    <label for="fileInput" class="btn btn-success">
+                <div class="d-flex justify-content-end mt-2">
+                    <label for="fileInput" class="btn btn-success me-2">
                       Upload Photo
                       <input type="file" (change)="onFileChange($event)" id="fileInput" style="display: none;" />
                     </label>
-                    <button id="postButton" class="btn mt-2">Post</button>
+                    <button id="postButton" class="btn" (click)="addPost()">Post</button>
                 </div>
-
-
             </div>
         </div>        
 

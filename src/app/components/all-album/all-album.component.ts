@@ -54,7 +54,6 @@ export class AllAlbumComponent implements OnInit {
 
   onFileChange(event: any) {
     this.file = event.target.files[0];
-    this.uploadPhoto();
   }
 
   //test

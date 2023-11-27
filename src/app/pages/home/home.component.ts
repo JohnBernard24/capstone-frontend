@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Friend } from 'src/app/models/friend';
-import { Post } from 'src/app/models/post';
+import { Post, PostDTO } from 'src/app/models/post';
 import { MiniProfileDTO, User } from 'src/app/models/user';
 import { FriendService } from 'src/app/services/friend.service';
 import { PhotoService } from 'src/app/services/photo.service';
@@ -8,6 +8,7 @@ import { SessionService } from 'src/app/services/session.service';
 import { UserService } from 'src/app/services/user.service';
 import { MatDialog } from '@angular/material/dialog';
 import { RequestsModalComponent } from 'src/app/modals/requests-modal/requests-modal.component';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,7 @@ export class HomeComponent implements OnInit{
   friends: Friend[] = [];
 
   private userId: number = 0;
-  post: Post = new Post();
+  post: PostDTO = new PostDTO();
   file: File | null = null;
   albumId: number = 1;
   
@@ -30,7 +31,8 @@ export class HomeComponent implements OnInit{
     private userService: UserService,
     private sessionService: SessionService,
     private friendService: FriendService,
-    private photoService: PhotoService
+    private photoService: PhotoService,
+    private postService: PostService
   ){
     this.userId = Number(this.sessionService.getUserId());
     this.getProfile(this.userId);
@@ -60,22 +62,19 @@ export class HomeComponent implements OnInit{
 
   onFileChange(event: any) {
     this.file = event.target.files[0];
-    this.uploadPhoto();
   }
 
-  uploadPhoto() {
+  async uploadPhoto(): Promise<number> {
     if (this.file) {
-      this.photoService.uploadPhoto(this.albumId, this.file).subscribe(
-        response => {
-          console.log('Photo uploaded successfully. Photo ID:', response.photoId);
-          // Add any further handling or redirection here
-        },
-        error => {
-          console.error('Error uploading photo:', error);
-          // Handle the error as needed
-        }
-      );
+      try {
+        const response = await this.photoService.uploadPhoto(this.albumId, this.file).toPromise();
+        return response.photoId;
+      } catch (error) {
+        console.error(error);
+        return 0;
+      }
     }
+    return 0; // Return 0 if this.file is not defined
   }
 
   openModal() {
@@ -86,7 +85,21 @@ export class HomeComponent implements OnInit{
     });
   }
   
-  
+  async addPost(){
+    let photoId = await this.uploadPhoto();
+    this.post.photoId = photoId;
+    console.log(photoId);
+    this.post.postTitle = "strings";
+    this.post.posterId = this.userId;
+
+    console.log(this.post);
+    this.postService.addPost(this.userId, this.post).subscribe((response) => {
+      console.log(response);
+    });
+
+
+  }
+
   
 
 

@@ -22,7 +22,7 @@ export class PostDTO{
     constructor(
         public postTitle?: string,
         public description?: string,
-        public photo?: Photo,
+        public photoId?: number,
         public posterId?: number
     ){}
 }
