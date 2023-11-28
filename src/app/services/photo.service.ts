@@ -20,9 +20,10 @@ export class PhotoService {
 
   uploadPhoto(albumId: number, file: File): Observable<any> {
     const formData: FormData = new FormData();
-    formData.append('file', file, file.name);
     formData.append('albumId', albumId.toString());
-
+    formData.append('file', file, file.name);
+    console.log('FormData:', formData);
+    console.log('Uploading file:', file);
 
     return this.http.post<any>(`${this.baseUrl}/add-photo`, formData);
   }

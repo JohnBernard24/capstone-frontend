@@ -9,7 +9,7 @@
       [ngStyle]="{ 'background-color': notification.isRead ? 'white' : 'lightgray' }"
       
     >
-      <ng-container *ngIf="notification.notificationType === 'like'">
+      <!-- <ng-container *ngIf="notification.notificationType === 'like'">
         <strong>{{ likeContexts[likeContexts.length - 1]?.liker?.firstName }} {{ likeContexts[likeContexts.length - 1]?.liker?.lastName }}</strong> liked your post.
       </ng-container>
 
@@ -23,7 +23,7 @@
 
       <ng-container *ngIf="notification.notificationType === 'accept-friend-request'">
         <strong>{{ friendRequestContexts[friendRequestContexts.length - 1]?.receiver?.firstName }} {{ friendRequestContexts[friendRequestContexts.length - 1]?.receiver?.lastName }}</strong> accepted your friend request.
-      </ng-container>
+      </ng-container> -->
       <br>
       <!-- "Mark as Read" option for unread notifications -->
       <span class="mark-as-read-btn" *ngIf="!notification.isRead" (click)="markAsRead(notification)">Mark as Read</span>

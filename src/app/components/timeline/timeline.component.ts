@@ -23,8 +23,7 @@ export class TimelineComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    this.getMainProfile(this.userId)
-    
+    this.getMainProfile()
   }
 
   openModal() {
@@ -35,8 +34,8 @@ export class TimelineComponent implements OnInit{
     });
   }
 
-  getMainProfile(userId: number){
-    this.userService.getMainProfile(userId).subscribe(
+  getMainProfile(){
+    this.userService.getMainProfile().subscribe(
       (response: ProfileDTO) => {
         this.profileDTO = response;
       },

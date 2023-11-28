@@ -54,27 +54,21 @@ export class LoginComponent implements OnInit {
       this.toast.error({detail: "ERROR", summary: "Please input your password.", duration: 5000});
       return;
     }
-
-
-    this.userService.login(this.email,this.password).subscribe({next: this.successfulLogin.bind(this),
-      error: this.failedLogin.bind(this)
     
+    this.userService.login(this.email,this.password).subscribe({
+      next: (response: Record<string, any>) => {
+        this.toast.success({detail: "SUCCESS", summary: "Login Successful", duration: 5000});
+        this.sessionService.setEmail(response['email']);
+        this.sessionService.setToken(response['token']);
+        this.sessionService.setUserId(response['userId']);
+    
+        this.router.navigate(['/home'])
+      },
+      error: (result: Record<string, any>) => {
+        this.toast.error({detail: "ERROR", summary: "Invalid credentials.", duration: 5000});
+        console.log(result['error']);
+      }
     })
-  }
-
-  successfulLogin(response: Record<string, any>) {
-    
-    this.toast.success({detail: "SUCCESS", summary: "Login Successful", duration: 5000});
-    this.sessionService.setEmail(response['email']);
-    this.sessionService.setToken(response['token']);
-    this.sessionService.setUserId(response['userId']);
-
-    this.router.navigate(['/home'])
-  }
-
-  failedLogin(result: Record<string, any>) {
-    this.toast.error({detail: "ERROR", summary: "Invalid credentials.", duration: 5000});
-    console.log(result['error']);
   }
 
 }

@@ -39,8 +39,8 @@ export class AllAlbumComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.loadAlbums();  
-    this.loadThumbnail(); 
+    // this.loadAlbums();  
+    // this.loadThumbnail(); 
   }
 
 
@@ -56,17 +56,14 @@ export class AllAlbumComponent implements OnInit {
     this.file = event.target.files[0];
   }
 
-  //test
   uploadPhoto() {
     if (this.file) {
       this.photoService.uploadPhoto(this.albumId, this.file).subscribe(
         response => {
           console.log('Photo uploaded successfully. Photo ID:', response.photoId);
-          // Add any further handling or redirection here
         },
         error => {
           console.error('Error uploading photo:', error);
-          // Handle the error as needed
         }
       );
     }
