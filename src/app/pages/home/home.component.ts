@@ -23,6 +23,7 @@ import { NgToastService } from 'ng-angular-popup';
 export class HomeComponent implements OnInit{
   miniProfileDTO: MiniProfileDTO = new MiniProfileDTO();
   friends: Friend[] = [];
+  
 
   private userId: number = 0;
   post: PostDTO = new PostDTO();
