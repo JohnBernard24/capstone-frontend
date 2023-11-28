@@ -1,21 +1,28 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Friend } from '../models/friend';
 import { MiniProfileDTO, User } from '../models/user';
+import { SessionService } from './session.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FriendService {
   private baseUrl: string = 'https://localhost:7116/api/friend'
+
+  private header: HttpHeaders = new HttpHeaders({
+    'Authorization': this.sessionService.getToken()
+  })
+
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private sessionService: SessionService
   ) { }
 
 
-  getFriendRequests(userId: number): Observable<Friend[]>{
-    return this.http.get<Friend[]>(this.baseUrl + `/get-all-friend-request/${userId}`);
+  getFriendRequests(): Observable<Friend[]>{
+    return this.http.get<Friend[]>(this.baseUrl + `/get-all-friend-request/`, {headers: this.header});
   }
 
   acceptFriendRequest(requestId?: number): Observable<Object>{
@@ -26,8 +33,8 @@ export class FriendService {
     return this.http.delete(this.baseUrl + `/reject-friend/${requestId}`);
   }
 
-  getAllFriends(userId: number): Observable<MiniProfileDTO[]>{
-    return this.http.get<MiniProfileDTO[]>(this.baseUrl + `/get-all-friends/${userId}`);
+  getAllFriends(): Observable<MiniProfileDTO[]>{
+    return this.http.get<MiniProfileDTO[]>(this.baseUrl + `/get-all-friends`, {headers: this.header});
   }
 
 }

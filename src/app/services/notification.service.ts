@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Notification } from '../models/notification';
+import { SessionService } from './session.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,14 +10,19 @@ import { Notification } from '../models/notification';
 export class NotificationService {
   private baseUrl: string = 'https://localhost:7116/api/notification'
 
+  private header: HttpHeaders = new HttpHeaders({
+    'Authorization': this.sessionService.getToken()
+  })
+
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private sessionService: SessionService
   ) {
   }
 
 
-  getNotificationLists(userId: number): Observable<Notification[]>{
-    return this.http.get<Notification[]>(this.baseUrl + `/get-notifications/${userId}`);
+  getNotificationLists(): Observable<Notification[]>{
+    return this.http.get<Notification[]>(this.baseUrl + `/get-notifications`, {headers: this.header});
   }
   
   getNotificationContext(notificationId: number | undefined): Observable<any>{

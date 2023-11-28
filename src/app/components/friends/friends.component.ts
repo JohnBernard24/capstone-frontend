@@ -30,13 +30,13 @@ export class FriendsComponent implements OnInit {
 
 
   loadFriends(userId: number){
-    this.friendService.getAllFriends(userId).subscribe((response: MiniProfileDTO[]) => {
+    this.friendService.getAllFriends().subscribe((response: MiniProfileDTO[]) => {
       this.friends = response
     });
   }
 
   getProfile(userId: number) {
-    this.userService.getMiniProfile(userId).subscribe(
+    this.userService.getMiniProfile().subscribe(
       (response: MiniProfileDTO) => {
         this.miniProfileDTO = response;
       },

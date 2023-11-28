@@ -22,7 +22,7 @@ export class NewsfeedComponent {
   }
 
   getNewsFeedPosts(userId: number){
-    this.userService.getNewsFeedPosts(userId).subscribe((response: Post[]) => {
+    this.userService.getNewsFeedPosts().subscribe((response: Post[]) => {
       this.posts = response;
     },
     (error) => {
