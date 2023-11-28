@@ -53,7 +53,8 @@ const appRoutes: Routes = [
   {path: 'change-password', component:ChangepasswordComponent},
   {path: 'album', component:PhotoalbumComponent},
   {path: 'photos', component:AlbumPhotosViewComponent},
-  {path: 'search-user-list', component:SearchUserListComponent}
+  {path: 'search-user-list', component:SearchUserListComponent},
+  {path: 'indiv-post', component:IndivPostComponent}
 
 ];
 
