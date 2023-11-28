@@ -52,7 +52,7 @@ export class NotificationsComponent implements OnInit {
     private notificationService: NotificationService,
     private router: Router
   ){
-    this.getNotificationLists(this.userId);
+    // this.getNotificationLists(this.userId);
     this.notifications.forEach(element => {
       
     });
@@ -68,8 +68,6 @@ export class NotificationsComponent implements OnInit {
       this.getNotificationContext(notification.contextId, notification.notificationType);
     });
   }
-
-  
 
   getNotificationContext(contextId: number | undefined, notificationType?: string) {
     this.notificationService.getNotificationContext(contextId).subscribe(

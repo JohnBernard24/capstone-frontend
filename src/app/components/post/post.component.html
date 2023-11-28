@@ -59,7 +59,7 @@
             </div>
 
             <div class="dropdown">
-                <i class="fa-regular fa-clock" style="color: #000000;"></i> 10 min
+                <i class="fa-regular fa-clock" style="color: #000000;"></i> {{ post.datePosted | date: 'short' }}
                 <button *ngIf="post.poster?.id === userId" class="ms-2 p-1 btn btn-link dropdown-toggle" type="button" id="gedf-drop1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa-solid fa-ellipsis" style="color: #000000;"></i>
                 </button>

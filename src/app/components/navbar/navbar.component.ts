@@ -30,14 +30,20 @@ export class NavbarComponent {
     ) {} 
     
     logout(){
-      this.userService.logout().subscribe({
-        next: () => {
-          this.sessionService.clear();
-          this.router.navigate([""]);
-          this.toast.success({detail: "SUCCESS", summary: "Logged out successfully", duration: 2500});
-        },
-        error: () => this.toast.error({detail: "ERROR", summary: "ERROR Logging out", duration: 2500})
-      });
+      // this.userService.logout().subscribe({
+      //   next: () => {
+      //     this.sessionService.clear();
+      //     this.router.navigate([""]);
+      //     this.toast.success({detail: "SUCCESS", summary: "Logged out successfully", duration: 2500});
+      //   },
+      //   error: () => this.toast.error({detail: "ERROR", summary: "ERROR Logging out", duration: 2500})
+      // });
+
+      this.userService.logout().subscribe((response) => {
+        this.sessionService.clear();
+        this.router.navigate([""]);
+        console.log(response);
+      })
     }
   
   onSearch() {
