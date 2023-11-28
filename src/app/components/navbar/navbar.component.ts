@@ -1,6 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
+import { SessionService } from 'src/app/services/session.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -24,12 +25,17 @@ export class NavbarComponent {
   constructor(
     private router: Router,
     private userService: UserService, 
-    private toast: NgToastService
+    private toast: NgToastService,
+    private sessionService: SessionService
     ) {} 
     
     logout(){
       this.userService.logout().subscribe({
-        next: () => this.toast.success({detail: "SUCCESS", summary: "Logged out successfully", duration: 2500}),
+        next: () => {
+          this.sessionService.clear();
+          this.router.navigate([""]);
+          this.toast.success({detail: "SUCCESS", summary: "Logged out successfully", duration: 2500});
+        },
         error: () => this.toast.error({detail: "ERROR", summary: "ERROR Logging out", duration: 2500})
       });
     }
