@@ -34,13 +34,15 @@ export class AllAlbumComponent implements OnInit {
     private sessionService: SessionService,
     //test
     private photoService: PhotoService
-  ){}
+  ){
+    
+    this.loadAlbums();  
+    this.loadThumbnail(); 
+  }
 
 
 
   ngOnInit(): void {
-     this.loadAlbums();  
-     this.loadThumbnail(); 
   }
 
 

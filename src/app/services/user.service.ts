@@ -26,7 +26,7 @@ export class UserService {
   register(user: UserRegisterDTO): Observable<Object> {
     return this.http.post(this.baseUrl + 'authentication/register', user)
   }
-
+ 
   login(email: string, password: string): Observable<Object> {
     return this.http.post(this.baseUrl + 'authentication/login', {email, password})
   }

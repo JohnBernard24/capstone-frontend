@@ -23,7 +23,7 @@ export class RequestsModalComponent implements OnInit {
     private friendService: FriendService
     ) {
       this.userId = Number(this.sessionService.getUserId());
-      this.getFriendRequests(this.userId);
+      this.getFriendRequests();
     }
   close() {
     this.dialogRef.close();
@@ -33,8 +33,8 @@ export class RequestsModalComponent implements OnInit {
     this.friends = this.friends.filter(friendEntry => friendEntry != givenFriend);
   }
 
-  getFriendRequests(userId: number){
-    this.friendService.getFriendRequests(userId).subscribe((response: Friend[]) =>{
+  getFriendRequests(){
+    this.friendService.getFriendRequests().subscribe((response: Friend[]) =>{
       this.friends = response;
     });
   }

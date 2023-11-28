@@ -14,7 +14,6 @@ import { Post } from 'src/app/models/post';
 export class TimelineComponent implements OnInit{
 
   profileDTO: ProfileDTO = new ProfileDTO();
-  private userId: number = Number(this.sessionService.getUserId());
   posts: Post[] = [];
 
 
@@ -23,11 +22,14 @@ export class TimelineComponent implements OnInit{
     public dialog: MatDialog,
     private userService: UserService,
     private sessionService: SessionService
-  ){}
+  ){
+    
+    this.getMainProfile();
+    this.loadAllPosts();
+    this.getMainProfile();
+  }
 
   ngOnInit(): void {
-    this.getMainProfile();
-    this.loadAllPosts(this.userId);
 
   }
 
@@ -52,8 +54,8 @@ export class TimelineComponent implements OnInit{
 
   
 
-  loadAllPosts(userId: number){
-    this.userService.getNewsFeedPosts(userId).subscribe((response: Post[]) => {
+  loadAllPosts(){
+    this.userService.getNewsFeedPosts().subscribe((response: Post[]) => {
       this.posts = response;
     },
     (error) => {
