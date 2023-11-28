@@ -24,6 +24,7 @@ export class NewsfeedComponent {
   getNewsFeedPosts(userId: number){
     this.userService.getNewsFeedPosts().subscribe((response: Post[]) => {
       this.posts = response;
+       
     },
     (error) => {
       console.error("Error fetching newsfeed posts", error);

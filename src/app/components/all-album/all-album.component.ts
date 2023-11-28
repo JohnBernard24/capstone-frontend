@@ -39,8 +39,8 @@ export class AllAlbumComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // this.loadAlbums();  
-    // this.loadThumbnail(); 
+     this.loadAlbums();  
+     this.loadThumbnail(); 
   }
 
 

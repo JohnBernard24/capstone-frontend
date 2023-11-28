@@ -20,17 +20,12 @@ export class PostComponent implements OnInit{
     { user: 'Min Ad', text: 'Lorem ipsum et dolor sit amet.' }
   ];
   
-  // formattedDate: string | undefined = "";
-  
   constructor(
     private sessionService: SessionService,
-    // private datePipe: DatePipe
   ){
   }
 
   ngOnInit(): void {
-    // const datePosted = this.post?.datePosted; 
-    // this.formattedDate = this.datePipe.transform(datePosted, 'MM/dd/yyyy hh:mm:ss a') || '';
   }
   
 }

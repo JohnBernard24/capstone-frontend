@@ -23,8 +23,8 @@ export class LoginComponent implements OnInit {
     private toast: NgToastService
   ){
     let token: string = this.sessionService.getToken();
-
-    if (token) {
+    
+    if (token != null) {3
       this.userService.validateToken().subscribe((response) => {
         let isUsable: boolean = response;
 
