@@ -1,5 +1,5 @@
 
-<!-- Add the modal HTML structure -->
+<!-- Likes modal HTML structure -->
 <div class="modal fade" id="likesModal" tabindex="-1" aria-labelledby="likesModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -9,11 +9,42 @@
             </div>
             <div class="modal-body">
                 <!-- Populate this div with the list of users who liked the post -->
-                <div *ngFor="let user of likedUsers" class="mb-2">{{ user }}</div>
+                <div *ngFor="let user of likedUsers" class="mb-2">
+                    <h4>{{ user }}</h4>
+                </div>                
             </div>
         </div>
     </div>
 </div>
+
+<!-- Comments modal HTML structure -->
+<div class="modal fade" id="commentsModal" tabindex="-1" aria-labelledby="commentsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="commentsModalLabel">Comments</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Populate this div with the list of users and their comments -->
+                <div *ngFor="let comment of comments" class="m-3">
+                    <div class="d-flex align-items-start">
+                        <img src="/assets/images/bg.jpg" alt="" width="40" height="40" class="rounded-circle me-3" />
+                        <div class="flex-fill">
+                            <div class="d-flex align-items-center">
+                                <strong>{{ comment.user }}</strong>
+                            </div>
+                            <div>
+                                {{ comment.text }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div class="card mb-3" >
     <div class="card-header">
@@ -48,10 +79,12 @@
         </p>
         <div class="d-flex">
             <!-- Add the 'data-bs-toggle' and 'data-bs-target' attributes for the modal -->
-            <span id="likes-count" class="me-auto text-body text-opacity-50 text-decoration-none" data-bs-toggle="tooltip" data-bs-placement="top" title="Liked by Ad Min, Jayvee Tinio, Blessie Balagtas, and 1 other.">
+            <span id="likes-count" class="me-auto text-body text-opacity-50 text-decoration-none" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Liked by Ad Min, Jayvee Tinio, Blessie Balagtas, and 1 other.">
                 <span class="text-body text-opacity-50" id="likes-count" onclick="showLikes()" data-bs-toggle="modal" data-bs-target="#likesModal">4 Likes</span>
             </span>
-            <span class="ms-auto text-body text-opacity-50 text-decoration-none">0 Comments</span>
+            <span id="comments-count" class="ms-auto text-body text-opacity-50 text-decoration-none" data-bs-toggle="tooltip" data-bs-placement="left" title="Comments on {{ post.postTitle }}">
+                <span class="text-body text-opacity-50" id="comments-count" onclick="showComments()" data-bs-toggle="modal" data-bs-target="#commentsModal">4 Comments</span>
+            </span>
         </div>
     </div>    
 
@@ -103,5 +136,41 @@
 
         // Show the modal
         likesModal.show();
+    }
+</script>
+
+<script>
+    function showComments() {
+        // You can fetch the list of users who commented on the post here
+        // For simplicity, let's assume you have a list called commentedUsers
+        let commentedUsers = ['Ad Min', 'Jayvee Tinio', 'Blessie Balagtas', 'Min Ad'];
+
+        let usersComments = {
+            'Ad Min': 'If the sentence is the essential soul to express oneself in their own way, then the paragraph is the virtual body of it. The Text Generator is an intelligent tool that creates random text incorporated with random thoughts. This smart tool is a virtual friend of yours that can talk to you in multidimensional thinking. It will provide you with thoughts, concepts, and ideas of different topics that will not only assist you in creating new knowledge but also enhance your brain function.',
+            'Jayvee Tinio': 'Amazing',
+            'Blessie Balagtas': 'Slay!',
+            'Min Ad': 'lorem ipsum et dolor sit amet.'
+        };
+
+        // Display the list in the modal
+        let commentsModal = new bootstrap.Modal(document.getElementById('commentsModal'));
+
+        // Populate the modal body with the list of users who commented on the post
+        let modalBody = document.querySelector('#commentsModal .modal-body');
+        modalBody.innerHTML = commentedUsers.map(user => `
+            <div class="d-flex align-items-center m-3">
+                <img src="/assets/images/bg.jpg" alt="" width="40" height="40" class="rounded-circle" />
+                <div class="flex-fill ps-2">
+                    <div class="position-relative d-flex align-items-center">
+                        <strong>${user}</strong>}
+                    </div>
+                    <div class="position-relative d-flex align-items-center">
+                        <strong>${usersComments[user]}
+                    </div>
+                </div>
+            </div>`).join('');
+
+        // Show the modal
+        commentsModal.show();
     }
 </script>
