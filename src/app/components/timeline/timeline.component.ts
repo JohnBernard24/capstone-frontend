@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { UserService } from 'src/app/services/user.service';
 import { SessionService } from 'src/app/services/session.service';
 import { ProfileDTO, User } from 'src/app/models/user';
+import { Post } from 'src/app/models/post';
 
 @Component({
   selector: 'app-timeline',
@@ -14,6 +15,8 @@ export class TimelineComponent implements OnInit{
 
   profileDTO: ProfileDTO = new ProfileDTO();
   private userId: number = Number(this.sessionService.getUserId());
+  posts: Post[] = [];
+
 
 
   constructor(
@@ -23,7 +26,9 @@ export class TimelineComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    this.getMainProfile()
+    this.getMainProfile();
+    this.loadAllPosts(this.userId);
+
   }
 
   openModal() {
@@ -45,18 +50,14 @@ export class TimelineComponent implements OnInit{
     );
   }
 
-  //===== WAITING FOR MODOL OF EDIT BIO"======
-  // submitAboutMe(userId: number){
-   // this.userService.editAboutMe(userId).subscribe({next: this.successfulRegister.bind(this),
-   //   error: this.failedRegister.bind(this)
-  //   this.userService.editAboutMe(userId).subscribe(
-  //     (response: ProfileDTO) => {
-  //       this.profileDTO = response;
-  //     },
-  //     (error) => {
-  //       console.error("Error", error)
-  //     }
-  //   );
-  // }
+  
 
+  loadAllPosts(userId: number){
+    this.userService.getNewsFeedPosts(userId).subscribe((response: Post[]) => {
+      this.posts = response;
+    },
+    (error) => {
+      console.error("Error fetching newsfeed posts", error);
+    });
+  }
 }

@@ -50,6 +50,10 @@ export class UserService {
     return this.http.get<Post[]>(this.baseUrl + `timeline/get-newsfeed-posts/${userId}`);
   }
 
+  getAllPosts(userId: number): Observable<Post[]>{
+    return this.http.get<Post[]>(this.baseUrl + `timeline/get-all-posts/${userId}`);
+  }
+
   editAboutMe(userId: number, profileDTO: ProfileDTO): Observable<ProfileDTO>{
     console.log(userId);
     return this.http.put(this.baseUrl + `profile/edit-about-me/${userId}`, profileDTO);

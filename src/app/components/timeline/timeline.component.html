@@ -8,7 +8,7 @@
             </div>
       </div>
       <div class="col-lg-8 col-12 content">
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti dicta, voluptas minus dolores voluptatem neque beatae excepturi esse officia fugit, vitae laboriosam rerum unde quia harum corporis quo dolore iure.</p>
+        <app-post *ngFor="let post of posts" [post]="post"></app-post>    
       </div>
     </div>
   </div>
