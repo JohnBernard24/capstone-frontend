@@ -4,7 +4,16 @@
             
         </div>
         <div class="col-md-9 col-md-pull-3">
-            <p class="search-results-count">About 94 700 000 (0.39 sec.) results</p>
+            <p class="search-results-count">About {{users.length}} result/s</p>
+
+            <ng-container *ngFor="let user of users">
+                <div>
+                    <p> {{user.firstName}} {{user.lastName}} </p> 
+                </div>
+            
+            </ng-container>
+            
+
             <section class="search-result-item">
                 <a class="image-link" href="#"><img class="image" src="https://bootdey.com/img/Content/avatar/avatar1.png">
                 </a>
@@ -41,3 +50,8 @@
                     </div>
                 </div>
             </section>
+        </div>
+
+
+
+        

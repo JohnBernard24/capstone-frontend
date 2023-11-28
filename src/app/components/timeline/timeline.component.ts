@@ -27,7 +27,7 @@ export class TimelineComponent implements OnInit{
 
   ngOnInit(): void {
     this.getMainProfile();
-    this.loadAllPosts(this.userId);
+    this.loadAllPosts();
 
   }
 
@@ -52,8 +52,8 @@ export class TimelineComponent implements OnInit{
 
   
 
-  loadAllPosts(userId: number){
-    this.userService.getNewsFeedPosts(userId).subscribe((response: Post[]) => {
+  loadAllPosts(){
+    this.userService.getNewsFeedPosts().subscribe((response: Post[]) => {
       this.posts = response;
     },
     (error) => {

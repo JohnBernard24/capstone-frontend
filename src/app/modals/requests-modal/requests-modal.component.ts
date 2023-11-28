@@ -34,7 +34,7 @@ export class RequestsModalComponent implements OnInit {
   }
 
   getFriendRequests(userId: number){
-    this.friendService.getFriendRequests(userId).subscribe((response: Friend[]) =>{
+    this.friendService.getFriendRequests().subscribe((response: Friend[]) =>{
       this.friends = response;
     });
   }

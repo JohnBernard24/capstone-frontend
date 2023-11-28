@@ -49,8 +49,8 @@ export class UserService {
   getNewsFeedPosts(): Observable<Post[]>{
     return this.http.get<Post[]>(this.baseUrl + `timeline/get-newsfeed-posts`, {headers: this.header});
   }
-  getAllPosts(userId: number): Observable<Post[]>{
-    return this.http.get<Post[]>(this.baseUrl + `timeline/get-all-posts/${userId}`);
+  getAllPosts(): Observable<Post[]>{
+    return this.http.get<Post[]>(this.baseUrl + `timeline/get-all-posts`, {headers: this.header});
   }
 
 
@@ -74,6 +74,12 @@ export class UserService {
   validateToken(): Observable<boolean>{
     return this.http.get<boolean>(this.baseUrl + `authentication/validate-token`, {headers: this.header});
   }
+
+
+  getAllUserBySearch(name: string): Observable<User[]> {
+    return this.http.get<User[]>(this.baseUrl + `profile/search-users/${name}`);
+  }
+
   
   // we haven't called edit-profile-pic yet 
 
