@@ -43,20 +43,19 @@ export class UserService {
     return this.http.get<ProfileDTO>(this.baseUrl + `profile/get-profile`, {headers: this.header});
   }
 
-  getMiniProfile(userId: number): Observable<MiniProfileDTO>{
-    return this.http.get<MiniProfileDTO>(this.baseUrl + `profile/get-mini-profile/${userId}`);
+  getMiniProfile(): Observable<MiniProfileDTO>{
+    return this.http.get<MiniProfileDTO>(this.baseUrl + `profile/get-mini-profile`, {headers: this.header});
   }
-  getNewsFeedPosts(userId: number): Observable<Post[]>{
-    return this.http.get<Post[]>(this.baseUrl + `timeline/get-newsfeed-posts/${userId}`);
+  getNewsFeedPosts(): Observable<Post[]>{
+    return this.http.get<Post[]>(this.baseUrl + `timeline/get-newsfeed-posts`, {headers: this.header});
   }
-
   getAllPosts(userId: number): Observable<Post[]>{
     return this.http.get<Post[]>(this.baseUrl + `timeline/get-all-posts/${userId}`);
   }
 
-  editAboutMe(userId: number, profileDTO: ProfileDTO): Observable<ProfileDTO>{
-    console.log(userId);
-    return this.http.put(this.baseUrl + `profile/edit-about-me/${userId}`, profileDTO);
+
+  editAboutMe(profileDTO: ProfileDTO): Observable<ProfileDTO>{
+    return this.http.put(this.baseUrl + `profile/edit-about-me`, profileDTO, {headers: this.header});
   }
 
 
@@ -76,4 +75,6 @@ export class UserService {
     return this.http.get<boolean>(this.baseUrl + `authentication/validate-token`, {headers: this.header});
   }
   
+  // we haven't called edit-profile-pic yet 
+
 }

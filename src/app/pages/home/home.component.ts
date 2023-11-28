@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit{
   }
 
   getProfile(userId: number) {
-    this.userService.getMiniProfile(userId).subscribe(
+    this.userService.getMiniProfile().subscribe(
       (response: MiniProfileDTO) => {
         this.miniProfileDTO = response;
       },
@@ -59,7 +59,7 @@ export class HomeComponent implements OnInit{
   }
 
   getFriendRequests(userId: number){
-    this.friendService.getFriendRequests(userId).subscribe((response: Friend[]) =>{
+    this.friendService.getFriendRequests().subscribe((response: Friend[]) =>{
       this.friends = response;
     });
   }
@@ -101,7 +101,7 @@ export class HomeComponent implements OnInit{
     this.post.posterId = this.userId;
 
     console.log(this.post);
-    this.postService.addPost(this.userId, this.post).subscribe({
+    this.postService.addPost(this.post).subscribe({
       next: () => {
         Swal.fire({
           title: "Post Added!",

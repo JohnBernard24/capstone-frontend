@@ -70,7 +70,7 @@ export class AllAlbumComponent implements OnInit {
   }
 
   loadAlbums() {
-    this.albumService.getAllAlbums(this.userId).subscribe((response: Album[]) => {
+    this.albumService.getAllAlbums().subscribe((response: Album[]) => {
       this.albums = response
     });
   }
@@ -99,7 +99,7 @@ export class AllAlbumComponent implements OnInit {
   addAlbum(): void {
     const userId = this.userId;
     this.newAlbum.userId = userId;
-    this.albumService.addAlbum(userId, this.newAlbum).subscribe(
+    this.albumService.addAlbum(this.newAlbum).subscribe(
       () => {
         console.log('Album added successfully');
         this.loadAlbums(); // Refresh the album list

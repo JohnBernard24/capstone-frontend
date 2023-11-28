@@ -58,7 +58,7 @@ export class NotificationsComponent implements OnInit {
     });
   }
   getNotificationLists(userId: number) {
-    this.notificationService.getNotificationLists(userId).subscribe((response: Notification[]) =>{
+    this.notificationService.getNotificationLists().subscribe((response: Notification[]) =>{
       this.notifications = response;
     },
     (error) => {
