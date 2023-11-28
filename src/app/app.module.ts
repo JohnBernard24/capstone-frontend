@@ -39,6 +39,7 @@ import { EditAboutmeComponent } from './modals/edit-aboutme/edit-aboutme.compone
 import { ImageModalComponent } from './modals/image-modal/image-modal.component';
 import { RequestsModalComponent } from './modals/requests-modal/requests-modal.component';
 import { SearchUserListComponent } from './pages/search-user-list/search-user-list.component';
+import { IndivPostComponent } from './pages/indiv-post/indiv-post.component';
 
 
 const appRoutes: Routes = [
@@ -87,7 +88,8 @@ const appRoutes: Routes = [
     EditAboutmeComponent,
     ImageModalComponent,
     RequestsModalComponent,
-    SearchUserListComponent
+    SearchUserListComponent,
+    IndivPostComponent
   ],
   imports: [
     BrowserModule, 

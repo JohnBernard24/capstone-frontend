@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EditAboutmeComponent } from 'src/app/modals/edit-aboutme/edit-aboutme.component';
 import { MatDialog } from '@angular/material/dialog';
-import { EditAboutmeComponent } from '@components/edit-aboutme/edit-aboutme.component';
 import { UserService } from 'src/app/services/user.service';
 import { SessionService } from 'src/app/services/session.service';
 import { ProfileDTO, User } from 'src/app/models/user';
